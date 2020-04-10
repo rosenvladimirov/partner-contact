@@ -45,6 +45,75 @@
         <xpath expr="//field[@name='child_ids']/form//field[@name='name']" position="attributes">
             <attribute name="attrs">{'invisible': [('contact_type','=','attached')]}</attribute>
         </xpath>
+        <xpath expr="//field[@name='child_ids']/kanban/field[@name='supplier']" position="after">
+            <field name="department_id"/>
+            <field name="job_position_id"/>
+            <field name="contact_type"/>
+            <field name="contact_id"/>
+            <field name="contact_id_image_small"/>
+            <field name="contact_id_name"/>
+            <field name="contact_id_phone"/>
+            <field name="contact_id_mobile"/>
+            <field name="contact_id_job_position_id"/>
+        </xpath>
+        <xpath expr="//div[@class='o_kanban_image']" position="replace">
+            <div class="o_kanban_image">
+              <t t-if="record.contact_type.raw_value == 'standalone'">
+                <img t-if="record.image_small.raw_value" t-att-src="'data:image/png;base64,'+record.image_small.raw_value"/>
+                <t t-if="!record.image_small.raw_value">
+                    <img t-if="record.type.raw_value === 'delivery'" t-att-src='_s + "/base/static/src/img/truck.png"'/>
+                    <img t-if="record.type.raw_value === 'invoice'" t-att-src='_s + "/base/static/src/img/money.png"'/>
+                    <t t-if="record.type.raw_value !== 'invoice' &amp;&amp; record.type.raw_value !== 'delivery'">
+                        <img t-if="record.is_company.raw_value === true" t-att-src='_s + "/base/static/src/img/company_image.png"'/>
+                        <img t-if="record.is_company.raw_value === false" t-att-src='_s + "/base/static/src/img/avatar.png"'/>
+                    </t>
+                </t>
+              </t>
+              <t t-if="record.contact_type.raw_value == 'attached'">
+                <img t-if="record.contact_id_image_small.raw_value" t-att-src="'data:image/png;base64,'+record.contact_id_image_small.raw_value"/>
+                <t t-if="!record.contact_id_image_small.raw_value">
+                    <img t-if="record.type.raw_value === 'delivery'" t-att-src="_s + &quot;/base/static/src/img/truck.png&quot;"/>
+                    <img t-if="record.type.raw_value === 'invoice'" t-att-src="_s + &quot;/base/static/src/img/money.png&quot;"/>
+                    <t t-if="record.type.raw_value !== 'invoice' &amp;&amp; record.type.raw_value !== 'delivery'">
+                        <img t-if="record.is_company.raw_value === true" t-att-src="_s + &quot;/base/static/src/img/company_image.png&quot;"/>
+                        <img t-if="record.is_company.raw_value === false" t-att-src="_s + &quot;/base/static/src/img/avatar.png&quot;"/>
+                    </t>
+                </t>
+              </t>
+            </div>
+        </xpath>
+        <xpath expr="//div[@class='oe_kanban_details']" position="replace">
+          <div class="oe_kanban_details">
+              <div><strong><field name="name_with_title"/></strong></div>
+              <div><field name="job_position_id"/><span t-if="record.job_position_id.raw_value and record.contact_id_job_position_id.raw_value"> - </span><field name="contact_id_job_position_id"/></div>
+              <div t-if="record.function.raw_value or record.department_id.raw_value">
+                  <span t-if="record.function.raw_value"><field name="function"/></span><span t-if="record.function.raw_value and record.department_id.raw_value"> - </span>
+                  <span t-if="record.department_id.raw_value"><field name="department_id"/></span>
+              </div>
+              <hr t-if="record.phone.raw_value or record.mobile.raw_value or record.contact_id_phone.raw_value or record.contact_id_mobile.raw_value or record.email.raw_value" style="margin:0 !important;"/>
+              <div t-if="record.email.raw_value"><field name="email" widget="email"/></div>
+              <div t-if="record.type.raw_value !== 'contact' and record.type.raw_value !== 'doctor' and record.type.raw_value !== 'patient'">
+                  <div>
+                      <field name="zip"/>
+                      <field name="city"/>
+                  </div>
+                  <field t-if="record.state_id.raw_value" name="state_id"/>
+                  <field name="country_id"/>
+              </div>
+              <div t-if="record.phone.raw_value or record.contact_id_phone.raw_value">
+                    <span t-if="record.phone.raw_value or record.contact_id_phone.raw_value">Phone: </span>
+                    <span t-if="record.phone.raw_value"><field name="phone"/></span>
+                    <span t-if="record.phone.raw_value and record.contact_id_phone.raw_value"> / </span>
+                    <span t-if="record.contact_id_phone.raw_value"><field name="contact_id_phone"/></span>
+              </div>
+              <div t-if="record.mobile.raw_value or record.contact_id_mobile.raw_value">
+                    <span t-if="record.mobile.raw_value or record.contact_id_mobile.raw_value">Mobile:</span>
+                    <span t-if="record.mobile.raw_value"><field name="mobile"/></span>
+                    <span t-if="record.mobile.raw_value and record.contact_id_mobile.raw_value"> / </span>
+                    <span t-if="record.contact_id_mobile.raw_value"><field name="contact_id_mobile"/></span>
+              </div>
+          </div>
+        </xpath>
         <field name="is_company" position="after">
             <field name="contact_type" invisible="1"/>
         </field>
@@ -69,20 +138,38 @@
                         <field name="state_id"/>
                         <field name="image"/>
                         <field name="lang"/>
+                        <field name="contact_type"/>
+                        <field name="contact_id"/>
+                        <field name="contact_id_image"/>
+                        <field name="contact_id_name"/>
                         <templates>
                             <t t-name="kanban-box">
                                 <t t-set="color" t-value="kanban_color(record.color.raw_value)"/>
                                 <div t-att-class="color + (record.title.raw_value == 1 ? ' oe_kanban_color_alert' : '') + ' oe_kanban_global_click'">
                                     <a t-if="!read_only_mode" type="delete" class="fa fa-times pull-right"/>
                                     <div class="o_kanban_image">
+                                      <t t-if="record.contact_type.raw_value == 'attached'">
+                                        <img t-if="record.contact_id_image.raw_value" t-att-src="'data:image/png;base64,'+record.contact_id_image.raw_value"/>
+                                        <t t-if="!record.contact_id_image.raw_value">
+                                            <img t-if="record.is_company.raw_value === true" t-att-src="_s + &quot;/base/static/src/img/company_image.png&quot;"/>
+                                            <img t-if="record.is_company.raw_value === false" t-att-src="_s + &quot;/base/static/src/img/avatar.png&quot;"/>
+                                        </t>
+                                      </t>
+                                      <t t-if="record.contact_type.raw_value == 'standalone'">
                                         <img t-if="record.image.raw_value" t-att-src="'data:image/png;base64,'+record.image.raw_value"/>
                                         <t t-if="!record.image.raw_value">
-                                            <img t-if="record.is_company.raw_value === true" t-att-src='_s + "/base/static/src/img/company_image.png"'/>
-                                            <img t-if="record.is_company.raw_value === false" t-att-src='_s + "/base/static/src/img/avatar.png"'/>
+                                            <img t-if="record.is_company.raw_value === true" t-att-src="_s + &quot;/base/static/src/img/company_image.png&quot;"/>
+                                            <img t-if="record.is_company.raw_value === false" t-att-src="_s + &quot;/base/static/src/img/avatar.png&quot;"/>
                                         </t>
+                                      </t>
                                     </div>
                                     <div class="oe_kanban_details">
+                                      <t t-if="record.contact_type.raw_value == 'attached'">
+                                        <field name="contact_id_name"/>
+                                      </t>
+                                      <t t-if="record.contact_type.raw_value == 'standalone'">
                                         <field name="name"/>
+                                      </t>
                                         <div t-if="record.function.raw_value"><field name="function"/> at <field name="parent_id"/></div>
                                         <div t-if="record.email.raw_value"><field name="email"/></div>
                                         <div t-if="record.phone.raw_value">Phone: <field name="phone"/></div>

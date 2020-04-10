@@ -1,0 +1,5 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"access_res_partner_speedy_group_partner_manager","speedy_res_partner_offices group_delivery_speedy_manager","model_speedy_res_partner_offices","group_delivery_speedy_manager",1,1,1,1
+"access_res_partner_speedy_group_user","speedy_res_partner_offices group_delivery_speedy_user","model_speedy_res_partner_offices","group_delivery_speedy_user",1,0,0,0
+"access_speedy_parcel_dimensions_group_user","speedy_parcel_dimensions group_delivery_speedy_manager","model_speedy_parcel_dimensions","group_delivery_speedy_manager",1,1,1,1
+"access_speedy_parcel_dimensions_group_partner_manager","speedy_parcel_dimensions group_delivery_speedy_user","model_speedy_parcel_dimensions",group_delivery_speedy_user,1,0,0,0

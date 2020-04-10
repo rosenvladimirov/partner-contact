@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_service_partners" model="ir.actions.act_window">
+        <field name="name">Service Partners</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">services.res.partner</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="search_view_id" ref="base.view_res_partner_filter"/>
+        <field name="help" type="html">
+          <p class="oe_view_nocontent_create">
+            Click to add a Car Service Partner directory.
+          </p><p>
+            The system helps you easily track all activities related to
+            a customer: discussions, history of business opportunities,
+            documents, etc.
+          </p>
+        </field>
+    </record>
+    <record id="action_contacts_view_kanban" model="ir.actions.act_window.view">
+        <field name="sequence" eval="0"/>
+        <field name="view_mode">kanban</field>
+        <field name="view_id" ref="partner-service.services_partner_kanban_view"/>
+        <field name="act_window_id" ref="action_service_partners"/>
+    </record>
+    <record id="action_contacts_view_tree" model="ir.actions.act_window.view">
+        <field name="sequence" eval="1"/>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="partner-service.services_partner_view_tree"/>
+        <field name="act_window_id" ref="action_service_partners"/>
+    </record>
+    <record id="action_contacts_view_form" model="ir.actions.act_window.view">
+        <field name="sequence" eval="2"/>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="partner-service.services_partner_form"/>
+        <field name="act_window_id" ref="action_service_partners"/>
+    </record>
+
+    <menuitem name="Services"
+        id="menu_service_partner"
+        sequence="6"
+        web_icon="partner-service,static/description/icon.png"
+        groups="base.group_user,base.group_partner_manager"/>
+
+    <menuitem id="services_res_partner_menu"
+        name="Service Partners"
+        action="action_service_partners"
+        parent="menu_service_partner"
+        sequence="2"/>
+
+</odoo>

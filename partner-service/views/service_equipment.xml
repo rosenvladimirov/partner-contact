@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+
+        <record id="services_equipment_tree" model="ir.ui.view">
+            <field name="name">services_equipment_tree</field>
+            <field name="model">services.equipment</field>
+            <field name="arch" type="xml">
+                <tree string="Equipment">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="product_id"/>
+                    <field name="description"/>
+                    <field name="partner_id"/>
+                    <field name="company_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="services_equipment_form" model="ir.ui.view">
+            <field name="name">services_equipment_form</field>
+            <field name="model">services.equipment</field>
+            <field name="arch" type="xml">
+                <form string="Equipment">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="product_id"/>
+                    <field name="description"/>
+                    <field name="partner_id"/>
+                    <field name="company_id"/>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</odoo>
+

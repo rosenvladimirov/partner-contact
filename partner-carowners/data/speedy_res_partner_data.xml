@@ -1,0 +1,1500 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="res_partner_speedy_main" model="speedy.res.partner.offices">
+            <field name="name">SPEEDY AD</field>
+            <field name="supplier">1</field>
+            <field eval="0" name="customer"/>
+            <field name="is_company">1</field>
+            <field name="city">Sofia</field>
+            <field name="city_id" ref="l10n_bg.68134"/>
+            <field name="state_id" ref="l10n_bg.S68134"/>
+            <field name="zip">1138</field>
+            <field name="country_id" ref="base.bg"/>
+            <field name="sector_number">sector Mladost</field>
+            <field name="street">SAMOKOVSKO SHOSE</field>
+            <field name="number">2L</field>
+            <field name="building_number">TARGOVSKI TSENTAR \"BOILA\"</field>
+            <field name="email">offer@speedy.bg</field>
+            <field name="website">https://www.speedy.bg</field>
+            <field name="image" type="base64" file="delivery_speedy/static/img/speedy-image.jpg"/>
+        </record>
+        <record id="res_partner_address_speedy_main" model="speedy.res.partner.offices">
+            <field name="name">Valeri Harutyun Mektupchiyan</field>
+            <field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+            <field name="function">Power of authority</field>
+            <field name="supplier">1</field>
+            <field eval="0" name="customer"/>
+            <field name="city">Sofia</field>
+            <field name="city_id" ref="l10n_bg.68134"/>
+            <field name="state_id" ref="l10n_bg.S68134"/>
+            <field name="zip">1138</field>
+            <field name="country_id" ref="base.bg"/>
+            <field name="street">Abagar</field>
+            <field name="sector_number">City Logistics Park Sofia</field>
+            <field name="number">22</field>
+            <field name="building_number">Administration building Speedy</field>
+            <field name="phone">070017001</field>
+            <field name="mobile">170017001</field>
+            <field name="image" type="base64" file="delivery_speedy/static/img/speedy_boss.jpg"/>
+        </record>
+
+        <record id="res_partner_address_speedy_769" model="speedy.res.partner.offices">
+            <field name="name">Yambol - Milin Kamak</field>
+            <field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+            <field name="supplier">1</field>
+            <field eval="0" name="customer"/>
+            <field name="speedy_office_id">769</field>
+            <field name="city">Yambol</field>
+            <field name="city_id" ref="l10n_bg.87374"/>
+            <field name="state_id" ref="l10n_bg.S87374"/>
+            <field name="zip">8600</field>
+            <field name="country_id" ref="base.bg"/>
+            <field name="street">Milin Kamak</field>
+            <field name="number">43</field>
+            <field name="building_number">Shop Sara</field>
+        </record>
+        <record id="res_partner_address_speedy_55" model="speedy.res.partner.offices">
+            <field name="name">Yambol - Dimitar Blagoev</field>
+            <field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+            <field name="supplier">1</field>
+            <field eval="0" name="customer"/>
+            <field name="speedy_office_id">55</field>
+            <field name="city">Yambol</field>
+            <field name="city_id" ref="l10n_bg.87374"/>
+            <field name="state_id" ref="l10n_bg.S87374"/>
+            <field name="zip">8600</field>
+            <field name="country_id" ref="base.bg"/>
+            <field name="street">Dimitar Blagoev</field>
+            <field name="number">6</field>
+        </record>
+        <record id="res_partner_address_speedy_93" model="speedy.res.partner.offices">
+            <field name="name">Yambol - Evropa</field>
+            <field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+            <field name="supplier">1</field>
+            <field eval="0" name="customer"/>
+            <field name="speedy_office_id">93</field>
+            <field name="city">Yambol</field>
+            <field name="city_id" ref="l10n_bg.87374"/>
+            <field name="state_id" ref="l10n_bg.S87374"/>
+            <field name="zip">8600</field>
+            <field name="country_id" ref="base.bg"/>
+            <field name="street">Evropa</field>
+            <field name="number">45</field>
+        </record>
+        <record id="res_partner_address_speedy_567" model="speedy.res.partner.offices">
+            <field name="name">Yakoruda</field>
+            <field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+            <field name="supplier">1</field>
+            <field eval="0" name="customer"/>
+            <field name="speedy_office_id">567</field>
+            <field name="city">Yakoruda</field>
+            <field name="city_id" ref="l10n_bg.87338"/>
+            <field name="state_id" ref="l10n_bg.S04279"/>
+            <field name="zip">2790</field>
+            <field name="country_id" ref="base.bg"/>
+            <field name="street">Hristo Botev</field>
+            <field name="number">5</field>
+        </record>
+        <record id="res_partner_address_speedy_9049" model="speedy.res.partner.offices">
+            <field name="name">Shumen - Simeon Veliki 34</field>
+            <field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+            <field name="supplier">1</field>
+            <field eval="0" name="customer"/>
+            <field name="speedy_office_id">9049</field>
+            <field name="city">Shumen</field>
+            <field name="city_id" ref="l10n_bg.83510"/>
+            <field name="state_id" ref="l10n_bg.S83510"/>
+            <field name="zip">9700</field>
+            <field name="country_id" ref="base.bg"/>
+            <field name="street">Simeon Veliki</field>
+            <field name="number">34</field>
+        </record>
+        <record id="res_partner_address_speedy_834" model="speedy.res.partner.offices">
+            <field name="name">Shumen - Grivitsa</field>
+            <field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+            <field name="supplier">1</field>
+            <field eval="0" name="customer"/>
+            <field name="speedy_office_id">834</field>
+            <field name="city">Shumen</field>
+            <field name="city_id" ref="l10n_bg.83510"/>
+            <field name="state_id" ref="l10n_bg.S83510"/>
+            <field name="zip">9700</field>
+            <field name="country_id" ref="base.bg"/>
+            <field name="street">Gen. Skobelev</field>
+            <field name="number">31</field>
+            <field name="sector_number">Grivitsa</field>
+        </record>
+        <record id="res_partner_address_speedy_86" model="speedy.res.partner.offices">
+            <field name="name">Shumen - Simeon Veliki 46B</field>
+            <field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+            <field name="supplier">1</field>
+            <field eval="0" name="customer"/>
+            <field name="speedy_office_id">86</field>
+            <field name="city">Shumen</field>
+            <field name="city_id" ref="l10n_bg.83510"/>
+            <field name="state_id" ref="l10n_bg.S83510"/>
+            <field name="zip">9700</field>
+            <field name="country_id" ref="base.bg"/>
+            <field name="street">Simeon Veliki</field>
+            <field name="number">46B</field>
+            <field name="building_number">Shop 2-3</field>
+        </record>
+        <record id="res_partner_address_speedy_154" model="speedy.res.partner.offices">
+            <field name="name">Shumen - Madara</field>
+            <field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+            <field name="supplier">1</field>
+            <field eval="0" name="customer"/>
+            <field name="speedy_office_id">154</field>
+            <field name="city">Shumen</field>
+            <field name="city_id" ref="l10n_bg.83510"/>
+            <field name="state_id" ref="l10n_bg.S83510"/>
+            <field name="zip">9700</field>
+            <field name="country_id" ref="base.bg"/>
+            <field name="street">Madara</field>
+            <field name="number">40</field>
+        </record>
+        <record id="res_partner_address_speedy_9050" model="speedy.res.partner.offices">
+            <field name="name">Shumen - Saedinenie</field>
+            <field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+            <field name="supplier">1</field>
+            <field eval="0" name="customer"/>
+            <field name="speedy_office_id">9050</field>
+            <field name="city">Shumen</field>
+            <field name="city_id" ref="l10n_bg.83510"/>
+            <field name="state_id" ref="l10n_bg.S83510"/>
+            <field name="zip">9700</field>
+            <field name="country_id" ref="base.bg"/>
+            <field name="street">Saedinenie</field>
+            <field name="number">28</field>
+        </record>
+        <record id="res_partner_address_speedy_8" model="speedy.res.partner.offices">
+            <field name="name">Shumen - Trakia</field>
+            <field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+            <field name="supplier">1</field>
+            <field eval="0" name="customer"/>
+            <field name="speedy_office_id">8</field>
+            <field name="city">Shumen</field>
+            <field name="city_id" ref="l10n_bg.83510"/>
+            <field name="state_id" ref="l10n_bg.S83510"/>
+            <field name="zip">9700</field>
+            <field name="country_id" ref="base.bg"/>
+            <field name="sector_number">Sector Trakia</field>
+            <field name="street">Industrialna</field>
+            <field name="building_number">Storage Base Agro-nayl</field>
+        </record>
+        <record id="res_partner_address_speedy_690" model="speedy.res.partner.offices">
+            <field name="name">Shumen - Saedinenie 66</field>
+            <field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+            <field name="supplier">1</field>
+            <field eval="0" name="customer"/>
+            <field name="speedy_office_id">690</field>
+            <field name="city">Shumen</field>
+            <field name="city_id" ref="l10n_bg.83510"/>
+            <field name="state_id" ref="l10n_bg.S83510"/>
+            <field name="zip">9700</field>
+            <field name="country_id" ref="base.bg"/>
+            <field name="street">Saedinenie</field>
+            <field name="number">66</field>
+        </record>
+        <record id="res_partner_address_speedy_654" model="speedy.res.partner.offices">
+            <field name="name">Chirpan</field>
+            <field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+            <field name="supplier">1</field>
+            <field eval="0" name="customer"/>
+            <field name="speedy_office_id">654</field>
+            <field name="city">Chirpan</field>
+            <field name="city_id" ref="l10n_bg.81414"/>
+            <field name="state_id" ref="l10n_bg.S68850"/>
+            <field name="zip">6200</field>
+            <field name="country_id" ref="base.bg"/>
+            <field name="street">Vasil Levski</field>
+            <field name="number">2</field>
+        </record>
+        <record id="res_partner_address_speedy_563" model="speedy.res.partner.offices">
+            <field name="name">Cherven Bryag</field>
+            <field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+            <field name="supplier">1</field>
+            <field eval="0" name="customer"/>
+            <field name="speedy_office_id">563</field>
+            <field name="city">Cherven Bryag</field>
+            <field name="city_id" ref="l10n_bg.80501"/>
+            <field name="state_id" ref="l10n_bg.S56722"/>
+            <field name="zip">5980</field>
+            <field name="country_id" ref="base.bg"/>
+            <field name="street">Antim</field>
+            <field name="number">4</field>
+        </record>
+        <record id="res_partner_address_speedy_728" model="speedy.res.partner.offices">
+            <field name="name">Tsarevo</field>
+            <field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+            <field name="supplier">1</field>
+            <field eval="0" name="customer"/>
+            <field name="speedy_office_id">728</field>
+            <field name="city">Tsarevo</field>
+            <field name="city_id" ref="l10n_bg.48619"/>
+            <field name="state_id" ref="l10n_bg.S07079"/>
+            <field name="zip">8260</field>
+            <field name="country_id" ref="base.bg"/>
+            <field name="street">Han Asparuh</field>
+            <field name="number">41</field>
+        </record>
+        <record id="res_partner_address_speedy_882" model="speedy.res.partner.offices">
+            <field name="name">Haskovo</field>
+            <field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+            <field name="supplier">1</field>
+            <field eval="0" name="customer"/>
+            <field name="speedy_office_id">882</field>
+            <field name="city">Haskovo</field>
+            <field name="city_id" ref="l10n_bg.77195"/>
+            <field name="state_id" ref="l10n_bg.S77195"/>
+            <field name="zip">6300</field>
+            <field name="country_id" ref="base.bg"/>
+            <field name="street">Bulgaria</field>
+            <field name="number">190</field>
+        </record>
+        <record id="res_partner_address_speedy_82" model="speedy.res.partner.offices">
+            <field name="name">Haskovo</field>
+            <field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+            <field name="supplier">1</field>
+            <field eval="0" name="customer"/>
+            <field name="speedy_office_id">82</field>
+            <field name="city">Haskovo</field>
+            <field name="city_id" ref="l10n_bg.77195"/>
+            <field name="state_id" ref="l10n_bg.S77195"/>
+            <field name="zip">6300</field>
+            <field name="country_id" ref="base.bg"/>
+            <field name="street">Saedinenie</field>
+            <field name="number">10</field>
+            <field name="street2">side by Skopie</field>
+        </record>
+        <record id="res_partner_address_speedy_6" model="speedy.res.partner.offices">
+            <field name="name">Haskovo</field>
+            <field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+            <field name="supplier">1</field>
+            <field eval="0" name="customer"/>
+            <field name="speedy_office_id">6</field>
+            <field name="city">Haskovo</field>
+            <field name="city_id" ref="l10n_bg.77195"/>
+            <field name="state_id" ref="l10n_bg.S77195"/>
+            <field name="zip">6300</field>
+            <field name="country_id" ref="base.bg"/>
+            <field name="street">Plovdivsko Shose</field>
+            <field name="number">2</field>
+        </record>
+        <record id="res_partner_address_speedy_670" model="speedy.res.partner.offices">
+            <field name="name">Haskovo</field>
+            <field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+            <field name="supplier">1</field>
+            <field eval="0" name="customer"/>
+            <field name="speedy_office_id">670</field>
+            <field name="city">Haskovo</field>
+            <field name="city_id" ref="l10n_bg.77195"/>
+            <field name="state_id" ref="l10n_bg.S77195"/>
+            <field name="zip">6300</field>
+            <field name="country_id" ref="base.bg"/>
+            <field name="street">Saedinenie</field>
+            <field name="number">29</field>
+        </record>
+        <record id="res_partner_address_speedy_47" model="speedy.res.partner.offices">
+            <field name="name">Harmanly</field>
+            <field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+            <field name="supplier">1</field>
+            <field eval="0" name="customer"/>
+            <field name="speedy_office_id">47</field>
+            <field name="city">Harmanli</field>
+            <field name="city_id" ref="l10n_bg.77181"/>
+            <field name="state_id" ref="l10n_bg.S77195"/>
+            <field name="zip">6450</field>
+            <field name="country_id" ref="base.bg"/>
+            <field name="street">Nikola Petkov</field>
+            <field name="number">13</field>
+         </record>
+        <record id="res_partner_address_speedy_570" model="speedy.res.partner.offices">
+            <field name="name">Aytos</field>
+            <field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+            <field name="supplier">1</field>
+            <field eval="0" name="customer"/>
+            <field name="speedy_office_id">570</field>
+            <field name="city">Aytos</field>
+            <field name="city_id" ref="l10n_bg.07079"/>
+            <field name="state_id" ref="l10n_bg.S07079"/>
+            <field name="zip">8500</field>
+            <field name="country_id" ref="base.bg"/>
+            <field name="street">Hristo Botev</field>
+            <field name="number">21</field>
+            <field name="building_number">Hristo Botev</field>
+        </record>
+
+        <record id="res_partner_address_speedy_640" model="speedy.res.partner.offices">
+            <field name="name">Aksakovo</field>
+            <field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+            <field name="supplier">1</field>
+            <field eval="0" name="customer"/>
+            <field name="speedy_office_id">640</field>
+            <field name="city">Aksakovo</field>
+            <field name="city_id" ref="l10n_bg.10135"/>
+            <field name="state_id" ref="l10n_bg.S10135"/>
+            <field name="zip">9154</field>
+            <field name="country_id" ref="base.bg"/>
+            <field name="street">Georgi Petleshev</field>
+            <field name="number">58A</field>
+            <field name="building_number">Georgi Petleshev</field>
+        </record>
+
+        <record id="res_partner_address_speedy_879" model="speedy.res.partner.offices">
+	<field name="name">Apriltsi</field>
+	<field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+	<field name="supplier">1</field>
+	<field eval="0" name="customer"/>
+	<field name="speedy_office_id">879</field>
+	<field name="city">Apriltsi</field>
+	<field name="city_id" ref="l10n_bg.43952"/>
+	<field name="state_id" ref="l10n_bg.S43952"/>
+	<field name="zip">5641</field>
+	<field name="country_id" ref="base.bg"/>
+	<field name="street">Vasil Levski</field>
+	<field name="number">222</field>
+	<field name="building_number">Hypermarket ERMI</field>
+</record>
+				
+<record id="res_partner_address_speedy_17" model="speedy.res.partner.offices">
+	<field name="name">Asenovgrad - Zubcheto</field>
+	<field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+	<field name="supplier">1</field>
+	<field eval="0" name="customer"/>
+	<field name="speedy_office_id">17</field>
+	<field name="city">Asenovgrad</field>
+	<field name="city_id" ref="l10n_bg.56784"/>
+	<field name="state_id" ref="l10n_bg.S56784"/>
+	<field name="zip">4230</field>
+	<field name="country_id" ref="base.bg"/>
+	<field name="street">Avksentiy Veleshki</field>
+	<field name="number">7</field>
+	<field name="building_number">Zubcheto</field>
+</record>
+						
+<record id="res_partner_address_speedy_732" model="speedy.res.partner.offices">
+	<field name="name">Balchik</field>
+	<field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+	<field name="supplier">1</field>
+	<field eval="0" name="customer"/>
+	<field name="speedy_office_id">732</field>
+	<field name="city">Balchik - Hristo Botev</field>
+	<field name="city_id" ref="l10n_bg.10135"/>
+	<field name="state_id" ref="l10n_bg.S10135"/>
+	<field name="zip">4230</field>
+	<field name="country_id" ref="base.bg"/>
+	<field name="street">Hristo Botev</field>
+	<field name="number">35</field>
+	<field name="building_number">Hristo Botev</field>
+</record>
+
+<record id="res_partner_address_speedy_780" model="speedy.res.partner.offices">
+	<field name="name">Bankiya</field>
+	<field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+	<field name="supplier">1</field>
+	<field eval="0" name="customer"/>
+	<field name="speedy_office_id">780</field>
+	<field name="city">Bankiya</field>
+	<field name="city_id" ref="l10n_bg.68134"/>
+	<field name="state_id" ref="l10n_bg.S68134"/>
+	<field name="zip">1320</field>
+	<field name="country_id" ref="base.bg"/>
+	<field name="street">Aleksandar Stamboliyski</field>
+	<field name="number">1</field>
+	<field name="building_number"></field>
+</record>
+		
+<record id="res_partner_address_speedy_34" model="speedy.res.partner.offices">
+	<field name="name">Bansko</field>
+	<field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+	<field name="supplier">1</field>
+	<field eval="0" name="customer"/>
+	<field name="speedy_office_id">34</field>
+	<field name="city">Bansko</field>
+	<field name="city_id" ref="l10n_bg.04279"/>
+	<field name="state_id" ref="l10n_bg.S04279"/>
+	<field name="zip">2770</field>
+	<field name="country_id" ref="base.bg"/>
+	<field name="street">Tsar Simeon</field>
+	<field name="number">80b</field>
+	<field name="building_number">across the Telephone Factory</field>
+</record>
+				
+<record id="res_partner_address_speedy_108" model="speedy.res.partner.offices">
+	<field name="name">Belene</field>
+	<field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+	<field name="supplier">1</field>
+	<field eval="0" name="customer"/>
+	<field name="speedy_office_id">108</field>
+	<field name="city">Belene</field>
+	<field name="city_id" ref="l10n_bg.56722"/>
+	<field name="state_id" ref="l10n_bg.S56722"/>
+	<field name="zip">5930</field>
+	<field name="country_id" ref="base.bg"/>
+	<field name="street">pl. Bulgaria</field>
+	<field name="number">1A</field>
+	<field name="building_number">Office Center Kristini</field>
+</record>
+
+<record id="res_partner_address_speedy_617" model="speedy.res.partner.offices">
+	<field name="name">Belitsa</field>
+	<field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+	<field name="supplier">1</field>
+	<field eval="0" name="customer"/>
+	<field name="speedy_office_id">617</field>
+	<field name="city">Belitsa</field>
+	<field name="city_id" ref="l10n_bg.04279"/>
+	<field name="state_id" ref="l10n_bg.S04279"/>
+	<field name="zip">2780</field>
+	<field name="country_id" ref="base.bg"/>
+	<field name="street">Aleksa Sachkov</field>
+	<field name="number">3</field>
+	<field name="building_number"></field>
+</record>
+
+<record id="res_partner_address_speedy_649" model="speedy.res.partner.offices">
+	<field name="name">Belovo</field>
+	<field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+	<field name="supplier">1</field>
+	<field eval="0" name="customer"/>
+	<field name="speedy_office_id">649</field>
+	<field name="city">Belovo</field>
+	<field name="city_id" ref="l10n_bg.55155"/>
+	<field name="state_id" ref="l10n_bg.S55155"/>
+	<field name="zip">4470</field>
+	<field name="country_id" ref="base.bg"/>
+	<field name="street">bul. Osvobozhdenie</field>
+	<field name="number">80</field>
+	<field name="building_number"></field>
+</record>
+		
+<record id="res_partner_address_speedy_550" model="speedy.res.partner.offices">
+	<field name="name">Belogradchik</field>
+	<field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+	<field name="supplier">1</field>
+	<field eval="0" name="customer"/>
+	<field name="speedy_office_id">550</field>
+	<field name="city">Belogradchik</field>
+	<field name="city_id" ref="l10n_bg.10971"/>
+	<field name="state_id" ref="l10n_bg.S10971"/>
+	<field name="zip">3900</field>
+	<field name="country_id" ref="base.bg"/>
+	<field name="street">Knyaz Boris I</field>
+	<field name="number">50</field>
+	<field name="building_number"></field>
+</record>
+				
+<record id="res_partner_address_speedy_589" model="speedy.res.partner.offices">
+	<field name="name">Beloslav</field>
+	<field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+	<field name="supplier">1</field>
+	<field eval="0" name="customer"/>
+	<field name="speedy_office_id">589</field>
+	<field name="city">Beloslav</field>
+	<field name="city_id" ref="l10n_bg.10135"/>
+	<field name="state_id" ref="l10n_bg.S10135"/>
+	<field name="zip">9178</field>
+	<field name="country_id" ref="base.bg"/>
+	<field name="street">Gebedzhe</field>
+	<field name="number">2</field>
+	<field name="building_number"></field>
+</record>
+						
+<record id="res_partner_address_speedy_528" model="speedy.res.partner.offices">
+	<field name="name">Berkovitsa</field>
+	<field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+	<field name="supplier">1</field>
+	<field eval="0" name="customer"/>
+	<field name="speedy_office_id">528</field>
+	<field name="city">Berkovitsa</field>
+	<field name="city_id" ref="l10n_bg.48489"/>
+	<field name="state_id" ref="l10n_bg.S48489"/>
+	<field name="zip">3500</field>
+	<field name="country_id" ref="base.bg"/>
+	<field name="street">Ivan Vazov</field>
+	<field name="number">2</field>
+	<field name="building_number"></field>
+</record>
+						
+<record id="res_partner_address_speedy_137" model="speedy.res.partner.offices">
+	<field name="name">Blagoevgrad - Grigor Parlichev</field>
+	<field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+	<field name="supplier">1</field>
+	<field eval="0" name="customer"/>
+	<field name="speedy_office_id">137</field>
+	<field name="city">Blagoevgrad</field>
+	<field name="city_id" ref="l10n_bg.04279"/>
+	<field name="state_id" ref="l10n_bg.S04279"/>
+	<field name="zip">2700</field>
+	<field name="country_id" ref="base.bg"/>
+	<field name="street">Grigor Parlichev</field>
+	<field name="number">2</field>
+	<field name="building_number">across Rubident Clinic next to the stadium</field>
+</record>
+						
+<record id="res_partner_address_speedy_676" model="speedy.res.partner.offices">
+	<field name="name">Blagoevgrad - Elenovo</field>
+	<field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+	<field name="supplier">1</field>
+	<field eval="0" name="customer"/>
+	<field name="speedy_office_id">676</field>
+	<field name="city">Blagoevgrad</field>
+	<field name="city_id" ref="l10n_bg.04279"/>
+	<field name="state_id" ref="l10n_bg.S04279"/>
+	<field name="zip">2700</field>
+	<field name="country_id" ref="base.bg"/>
+	<field name="street">Georgi Andreychin</field>
+	<field name="number">8</field>
+	<field name="building_number">M-n Ot Igla Do Konets</field>
+	<field name="sector_number">Elenovo</field>
+</record>
+<record id="res_partner_address_speedy_802" model="speedy.res.partner.offices">
+	<field name="name">Blagoevgrad - South</field>
+	<field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+	<field name="supplier">1</field>
+	<field eval="0" name="customer"/>
+	<field name="speedy_office_id">802</field>
+	<field name="city">Blagoevgrad</field>
+	<field name="city_id" ref="l10n_bg.04279"/>
+	<field name="state_id" ref="l10n_bg.S04279"/>
+	<field name="zip">2700</field>
+	<field name="country_id" ref="base.bg"/>
+	<field name="street">Slaviyanska</field>
+	<field name="number">83</field>
+	<field name="sector_number">Zapad</field>
+</record>
+
+<record id="res_partner_address_speedy_13" model="speedy.res.partner.offices">
+	<field name="name">Blagoevgrad - Warehouse</field>
+	<field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+	<field name="supplier">1</field>
+	<field eval="0" name="customer"/>
+	<field name="speedy_office_id">13</field>
+	<field name="city">Blagoevgrad</field>
+	<field name="city_id" ref="l10n_bg.04279"/>
+	<field name="state_id" ref="l10n_bg.S04279"/>
+	<field name="zip">2700</field>
+	<field name="country_id" ref="base.bg"/>
+	<field name="street">Vasil Levski</field>
+	<field name="number">61</field>
+	<field name="building_number">old ZST factory</field>
+</record>
+
+<record id="res_partner_address_speedy_61" model="speedy.res.partner.offices">
+	<field name="name">Botevgrad - Patriarh Evtimiy</field>
+	<field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+	<field name="supplier">1</field>
+	<field eval="0" name="customer"/>
+	<field name="speedy_office_id">61</field>
+	<field name="city">Botevgrad</field>
+	<field name="city_id" ref="l10n_bg.04279"/>
+	<field name="state_id" ref="l10n_bg.S04279"/>
+	<field name="zip">2140</field>
+	<field name="country_id" ref="base.bg"/>
+	<field name="street">Patriarh Evtimiy</field>
+	<field name="number">18</field>
+	<field name="building_number"></field>
+</record>
+
+<record id="res_partner_address_speedy_857" model="speedy.res.partner.offices">
+	<field name="name">Botevgrad - 3-ti Mart</field>
+	<field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+	<field name="supplier">1</field>
+	<field eval="0" name="customer"/>
+	<field name="speedy_office_id">857</field>
+	<field name="city">Botevgrad</field>
+	<field name="city_id" ref="l10n_bg.04279"/>
+	<field name="state_id" ref="l10n_bg.S04279"/>
+	<field name="zip">2140</field>
+	<field name="country_id" ref="base.bg"/>
+	<field name="street">3-ti Mart</field>
+	<field name="number">85</field>
+	<field name="building_number"></field>
+</record>
+
+<record id="res_partner_address_speedy_141" model="speedy.res.partner.offices">
+	<field name="name">Botevgrad - Warehouse</field>
+	<field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+	<field name="supplier">1</field>
+	<field eval="0" name="customer"/>
+	<field name="speedy_office_id">141</field>
+	<field name="city">Botevgrad</field>
+	<field name="city_id" ref="l10n_bg.04279"/>
+	<field name="state_id" ref="l10n_bg.S04279"/>
+	<field name="zip">2140</field>
+	<field name="country_id" ref="base.bg"/>
+	<field name="street">Tsar Ivan Shishman</field>
+	<field name="number">37</field>
+	<field name="building_number">Niksmetal base</field>
+</record>
+
+<record id="res_partner_address_speedy_705" model="speedy.res.partner.offices">
+	<field name="name">Burgas - Bratya Miladinovi</field>
+	<field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+	<field name="supplier">1</field>
+	<field eval="0" name="customer"/>
+	<field name="speedy_office_id">705</field>
+	<field name="city">Burgas</field>
+	<field name="city_id" ref="l10n_bg.07079"/>
+	<field name="state_id" ref="l10n_bg.S07079"/>
+	<field name="zip">8000</field>
+	<field name="country_id" ref="base.bg"/>
+	<field name="street">-</field>
+	<field name="number">135</field>
+	<field name="building_number">-</field>
+	<field name="sector_number">Bratya Miladinovi</field>
+</record>
+
+<record id="res_partner_address_speedy_602" model="speedy.res.partner.offices">
+	<field name="name">Burgas - Vazrazhdane</field>
+	<field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+	<field name="supplier">1</field>
+	<field eval="0" name="customer"/>
+	<field name="speedy_office_id">602</field>
+	<field name="city">Burgas</field>
+	<field name="city_id" ref="l10n_bg.07079"/>
+	<field name="state_id" ref="l10n_bg.S07079"/>
+	<field name="zip">8000</field>
+	<field name="country_id" ref="base.bg"/>
+	<field name="street">Slivnitsa</field>
+	<field name="number">55</field>
+	<field name="building_number">-</field>
+	<field name="sector_number">Vuzrazhdane</field>
+</record>
+
+<record id="res_partner_address_speedy_789" model="speedy.res.partner.offices">
+	<field name="name">Burgas - Vazrazhdane, Sheinovo</field>
+	<field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+	<field name="supplier">1</field>
+	<field eval="0" name="customer"/>
+	<field name="speedy_office_id">789</field>
+	<field name="city">Burgas</field>
+	<field name="city_id" ref="l10n_bg.07079"/>
+	<field name="state_id" ref="l10n_bg.S07079"/>
+	<field name="zip">8000</field>
+	<field name="country_id" ref="base.bg"/>
+	<field name="street">Sheinovo</field>
+	<field name="number">46</field>
+	<field name="building_number">behind DNA</field>
+	<field name="sector_number">Vuzrazhdane</field>
+</record>
+
+<record id="res_partner_address_speedy_695" model="speedy.res.partner.offices">
+	<field name="name">Burgas - Zornitsa</field>
+	<field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+	<field name="supplier">1</field>
+	<field eval="0" name="customer"/>
+	<field name="speedy_office_id">695</field>
+	<field name="city">Burgas</field>
+	<field name="city_id" ref="l10n_bg.07079"/>
+	<field name="state_id" ref="l10n_bg.S07079"/>
+	<field name="zip">8000</field>
+	<field name="country_id" ref="base.bg"/>
+	<field name="street"></field>
+	<field name="number"></field>
+	<field name="building_number">Sport Centre Boycho Branzov</field>
+	<field name="sector_number">Zornitsa</field>
+</record>
+
+<record id="res_partner_address_speedy_115" model="speedy.res.partner.offices">
+	<field name="name">Burgas - Ivan Bogorov</field>
+	<field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+	<field name="supplier">1</field>
+	<field eval="0" name="customer"/>
+	<field name="speedy_office_id">115</field>
+	<field name="city">Burgas</field>
+	<field name="city_id" ref="l10n_bg.07079"/>
+	<field name="state_id" ref="l10n_bg.S07079"/>
+	<field name="zip">8000</field>
+	<field name="country_id" ref="base.bg"/>
+	<field name="street">Ivan Bogorov</field>
+	<field name="number">20</field>
+	<field name="building_number"></field>
+	<field name="sector_number"></field>
+</record>
+
+<record id="res_partner_address_speedy_814" model="speedy.res.partner.offices">
+	<field name="name">Burgas - Izgrev</field>
+	<field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+	<field name="supplier">1</field>
+	<field eval="0" name="customer"/>
+	<field name="speedy_office_id">814</field>
+	<field name="city">Burgas</field>
+	<field name="city_id" ref="l10n_bg.07079"/>
+	<field name="state_id" ref="l10n_bg.S07079"/>
+	<field name="zip">8000</field>
+	<field name="country_id" ref="base.bg"/>
+	<field name="street">Transportna</field>
+	<field name="number">15</field>
+	<field name="building_number">inside Smart Centre building</field>
+	<field name="sector_number">Izgrev</field>
+</record>
+
+<record id="res_partner_address_speedy_719" model="speedy.res.partner.offices">
+	<field name="name">Burgas - Lazur</field>
+	<field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+	<field name="supplier">1</field>
+	<field eval="0" name="customer"/>
+	<field name="speedy_office_id">719</field>
+	<field name="city">Burgas</field>
+	<field name="city_id" ref="l10n_bg.07079"/>
+	<field name="state_id" ref="l10n_bg.S07079"/>
+	<field name="zip">8000</field>
+	<field name="country_id" ref="base.bg"/>
+	<field name="street">Kalofer</field>
+	<field name="number">13</field>
+	<field name="building_number"></field>
+	<field name="sector_number">Lazur</field>
+</record>
+
+<record id="res_partner_address_speedy_860" model="speedy.res.partner.offices">
+	<field name="name">Burgas - Meden Rudnik</field>
+	<field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+	<field name="supplier">1</field>
+	<field eval="0" name="customer"/>
+	<field name="speedy_office_id">860</field>
+	<field name="city">Burgas</field>
+	<field name="city_id" ref="l10n_bg.07079"/>
+	<field name="state_id" ref="l10n_bg.S07079"/>
+	<field name="zip">8000</field>
+	<field name="country_id" ref="base.bg"/>
+	<field name="street"></field>
+	<field name="number"></field>
+	<field name="building_number">next to Slancho</field>
+	<field name="sector_number">Meden Rudnik 383</field>
+</record>
+
+<record id="res_partner_address_speedy_569" model="speedy.res.partner.offices">
+	<field name="name">Burgas - Meden Rudnik, Bitov Kombinat</field>
+	<field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+	<field name="supplier">1</field>
+	<field eval="0" name="customer"/>
+	<field name="speedy_office_id">569</field>
+	<field name="city">Burgas</field>
+	<field name="city_id" ref="l10n_bg.07079"/>
+	<field name="state_id" ref="l10n_bg.S07079"/>
+	<field name="zip">8000</field>
+	<field name="country_id" ref="base.bg"/>
+	<field name="street"></field>
+	<field name="number"></field>
+	<field name="building_number">next to Bitov Kombinat</field>
+	<field name="sector_number">Meden Rudnik 414</field>
+</record>
+
+<record id="res_partner_address_speedy_9020" model="speedy.res.partner.offices">
+	<field name="name">Burgas - METRO</field>
+	<field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+	<field name="supplier">1</field>
+	<field eval="0" name="customer"/>
+	<field name="speedy_office_id">9020</field>
+	<field name="city">Burgas</field>
+	<field name="city_id" ref="l10n_bg.07079"/>
+	<field name="state_id" ref="l10n_bg.S07079"/>
+	<field name="zip">8000</field>
+	<field name="country_id" ref="base.bg"/>
+	<field name="street">Stefan Stambolov</field>
+	<field name="number">103</field>
+	<field name="building_number">Automatic post station</field>
+	<field name="sector_number"></field>
+</record>
+
+<record id="res_partner_address_speedy_9021" model="speedy.res.partner.offices">
+	<field name="name">Burgas - Mall Galeria</field>
+	<field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+	<field name="supplier">1</field>
+	<field eval="0" name="customer"/>
+	<field name="speedy_office_id">9021</field>
+	<field name="city">Burgas</field>
+	<field name="city_id" ref="l10n_bg.07079"/>
+	<field name="state_id" ref="l10n_bg.S07079"/>
+	<field name="zip">8000</field>
+	<field name="country_id" ref="base.bg"/>
+	<field name="street">Yanko Komitov</field>
+	<field name="number">6</field>
+	<field name="building_number">Automatic post station</field>
+	<field name="sector_number"></field>
+</record>
+
+<record id="res_partner_address_speedy_740" model="speedy.res.partner.offices">
+	<field name="name">Burgas - Pobeda</field>
+	<field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+	<field name="supplier">1</field>
+	<field eval="0" name="customer"/>
+	<field name="speedy_office_id">740</field>
+	<field name="city">Burgas</field>
+	<field name="city_id" ref="l10n_bg.07079"/>
+	<field name="state_id" ref="l10n_bg.S07079"/>
+	<field name="zip">8000</field>
+	<field name="country_id" ref="base.bg"/>
+	<field name="street">Chataldzha</field>
+	<field name="number">52</field>
+	<field name="building_number">behind SHELL</field>
+	<field name="sector_number">Pobeda</field>
+</record>
+
+<record id="res_partner_address_speedy_813" model="speedy.res.partner.offices">
+	<field name="name">Burgas - Sarafovo</field>
+	<field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+	<field name="supplier">1</field>
+	<field eval="0" name="customer"/>
+	<field name="speedy_office_id">813</field>
+	<field name="city">Burgas</field>
+	<field name="city_id" ref="l10n_bg.07079"/>
+	<field name="state_id" ref="l10n_bg.S07079"/>
+	<field name="zip">8000</field>
+	<field name="country_id" ref="base.bg"/>
+	<field name="street">Bratsigovo</field>
+	<field name="number">16A</field>
+	<field name="building_number"></field>
+	<field name="sector_number">Sarafovo</field>
+</record>
+
+<record id="res_partner_address_speedy_3" model="speedy.res.partner.offices">
+	<field name="name">Burgas - Warehouse</field>
+	<field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+	<field name="supplier">1</field>
+	<field eval="0" name="customer"/>
+	<field name="speedy_office_id">3</field>
+	<field name="city">Burgas</field>
+	<field name="city_id" ref="l10n_bg.07079"/>
+	<field name="state_id" ref="l10n_bg.S07079"/>
+	<field name="zip">8000</field>
+	<field name="country_id" ref="base.bg"/>
+	<field name="street"></field>
+	<field name="number"></field>
+	<field name="building_number">Somat base, Warehouse</field>
+	<field name="sector_number"></field>
+</record>
+
+<record id="res_partner_address_speedy_829" model="speedy.res.partner.offices">
+	<field name="name">Burgas - Slaveykov</field>
+	<field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+	<field name="supplier">1</field>
+	<field eval="0" name="customer"/>
+	<field name="speedy_office_id">829</field>
+	<field name="city">Burgas</field>
+	<field name="city_id" ref="l10n_bg.07079"/>
+	<field name="state_id" ref="l10n_bg.S07079"/>
+	<field name="zip">8000</field>
+	<field name="country_id" ref="base.bg"/>
+	<field name="street"></field>
+	<field name="number"></field>
+	<field name="building_number">next to Billa</field>
+	<field name="sector_number">Slaveykov 113</field>
+</record>
+
+<record id="res_partner_address_speedy_858" model="speedy.res.partner.offices">
+	<field name="name">Burgas - Lermontov</field>
+	<field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+	<field name="supplier">1</field>
+	<field eval="0" name="customer"/>
+	<field name="speedy_office_id">858</field>
+	<field name="city">Burgas</field>
+	<field name="city_id" ref="l10n_bg.07079"/>
+	<field name="state_id" ref="l10n_bg.S07079"/>
+	<field name="zip">8000</field>
+	<field name="country_id" ref="base.bg"/>
+	<field name="street">Lermontov</field>
+	<field name="number">36</field>
+	<field name="building_number">next to 1-st Police Department</field>
+	<field name="sector_number"></field>
+</record>
+
+<record id="res_partner_address_speedy_833" model="speedy.res.partner.offices">
+	<field name="name">Varna - Mara Taseva</field>
+	<field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+	<field name="supplier">1</field>
+	<field eval="0" name="customer"/>
+	<field name="speedy_office_id">833</field>
+	<field name="city">Varna</field>
+	<field name="city_id" ref="l10n_bg.10135"/>
+	<field name="state_id" ref="l10n_bg.S10135"/>
+	<field name="zip">9000</field>
+	<field name="country_id" ref="base.bg"/>
+	<field name="street">Mara Taseva</field>
+	<field name="number">1</field>
+	<field name="building_number">next to City Centre Asparuhovo</field>
+	<field name="sector_number">Asparuhovo</field>
+</record>
+
+<record id="res_partner_address_speedy_603" model="speedy.res.partner.offices">
+	<field name="name">Varna - Batak</field>
+	<field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+	<field name="supplier">1</field>
+	<field eval="0" name="customer"/>
+	<field name="speedy_office_id">603</field>
+	<field name="city">Varna</field>
+	<field name="city_id" ref="l10n_bg.10135"/>
+	<field name="state_id" ref="l10n_bg.S10135"/>
+	<field name="zip">9000</field>
+	<field name="country_id" ref="base.bg"/>
+	<field name="street">Batak</field>
+	<field name="number">7</field>
+	<field name="building_number"></field>
+	<field name="sector_number"></field>
+</record>
+
+<record id="res_partner_address_speedy_513" model="speedy.res.partner.offices">
+	<field name="name">Varna - Vladislav Varnenchik 126</field>
+	<field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+	<field name="supplier">1</field>
+	<field eval="0" name="customer"/>
+	<field name="speedy_office_id">513</field>
+	<field name="city">Varna</field>
+	<field name="city_id" ref="l10n_bg.10135"/>
+	<field name="state_id" ref="l10n_bg.S10135"/>
+	<field name="zip">9000</field>
+	<field name="country_id" ref="base.bg"/>
+	<field name="street">Vladislav Varnenchik</field>
+	<field name="number">126</field>
+	<field name="building_number"></field>
+	<field name="sector_number"></field>
+</record>
+
+<record id="res_partner_address_speedy_580" model="speedy.res.partner.offices">
+	<field name="name">Varna - Vladislav Varnenchik</field>
+	<field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+	<field name="supplier">1</field>
+	<field eval="0" name="customer"/>
+	<field name="speedy_office_id">580</field>
+	<field name="city">Varna</field>
+	<field name="city_id" ref="l10n_bg.10135"/>
+	<field name="state_id" ref="l10n_bg.S10135"/>
+	<field name="zip">9000</field>
+	<field name="country_id" ref="base.bg"/>
+	<field name="street"></field>
+	<field name="number"></field>
+	<field name="building_number"></field>
+	<field name="sector_number">Vladislav Varnenchik</field>
+</record>
+
+<record id="res_partner_address_speedy_724" model="speedy.res.partner.offices">
+	<field name="name">Varna - Ivan Katsarski</field>
+	<field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+	<field name="supplier">1</field>
+	<field eval="0" name="customer"/>
+	<field name="speedy_office_id">724</field>
+	<field name="city">Varna</field>
+	<field name="city_id" ref="l10n_bg.10135"/>
+	<field name="state_id" ref="l10n_bg.S10135"/>
+	<field name="zip">9000</field>
+	<field name="country_id" ref="base.bg"/>
+	<field name="street">Ivan Katsarski</field>
+	<field name="number">10</field>
+	<field name="building_number"></field>
+	<field name="sector_number">Vazrazhdane 1</field>
+</record>
+
+<record id="res_partner_address_speedy_854" model="speedy.res.partner.offices">
+	<field name="name">Varna - Gen. Kolev</field>
+	<field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+	<field name="supplier">1</field>
+	<field eval="0" name="customer"/>
+	<field name="speedy_office_id">854</field>
+	<field name="city">Varna</field>
+	<field name="city_id" ref="l10n_bg.10135"/>
+	<field name="state_id" ref="l10n_bg.S10135"/>
+	<field name="zip">9000</field>
+	<field name="country_id" ref="base.bg"/>
+	<field name="street">General Kolev</field>
+	<field name="number">68</field>
+	<field name="building_number"></field>
+	<field name="sector_number"></field>
+</record>
+
+<record id="res_partner_address_speedy_510" model="speedy.res.partner.offices">
+	<field name="name">Varna - Georgi Benkovski</field>
+	<field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+	<field name="supplier">1</field>
+	<field eval="0" name="customer"/>
+	<field name="speedy_office_id">510</field>
+	<field name="city">Varna</field>
+	<field name="city_id" ref="l10n_bg.10135"/>
+	<field name="state_id" ref="l10n_bg.S10135"/>
+	<field name="zip">9000</field>
+	<field name="country_id" ref="base.bg"/>
+	<field name="street">Georgi Benkovski</field>
+	<field name="number">9</field>
+	<field name="building_number"></field>
+	<field name="sector_number"></field>
+</record>
+
+<record id="res_partner_address_speedy_871" model="speedy.res.partner.offices">
+	<field name="name">Varna - Hristo Popovich</field>
+	<field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+	<field name="supplier">1</field>
+	<field eval="0" name="customer"/>
+	<field name="speedy_office_id">871</field>
+	<field name="city">Varna</field>
+	<field name="city_id" ref="l10n_bg.10135"/>
+	<field name="state_id" ref="l10n_bg.S10135"/>
+	<field name="zip">9000</field>
+	<field name="country_id" ref="base.bg"/>
+	<field name="street">Hristo Popovich</field>
+	<field name="number">3</field>
+	<field name="building_number">next to City Hospital</field>
+	<field name="sector_number"></field>
+</record>
+
+<record id="res_partner_address_speedy_746" model="speedy.res.partner.offices">
+	<field name="name">Varna - Dragoman</field>
+	<field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+	<field name="supplier">1</field>
+	<field eval="0" name="customer"/>
+	<field name="speedy_office_id">746</field>
+	<field name="city">Varna</field>
+	<field name="city_id" ref="l10n_bg.10135"/>
+	<field name="state_id" ref="l10n_bg.S10135"/>
+	<field name="zip">9000</field>
+	<field name="country_id" ref="base.bg"/>
+	<field name="street">Dragoman</field>
+	<field name="number">27A</field>
+	<field name="building_number"></field>
+	<field name="sector_number"></field>
+</record>
+
+<record id="res_partner_address_speedy_661" model="speedy.res.partner.offices">
+	<field name="name">Varna - Levski</field>
+	<field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+	<field name="supplier">1</field>
+	<field eval="0" name="customer"/>
+	<field name="speedy_office_id">661</field>
+	<field name="city">Varna</field>
+	<field name="city_id" ref="l10n_bg.10135"/>
+	<field name="state_id" ref="l10n_bg.S10135"/>
+	<field name="zip">9000</field>
+	<field name="country_id" ref="base.bg"/>
+	<field name="street">Sdutentska</field>
+	<field name="number">4</field>
+	<field name="building_number"></field>
+	<field name="sector_number">Levski</field>
+</record>
+
+<record id="res_partner_address_speedy_832" model="speedy.res.partner.offices">
+	<field name="name">Varna - Vasil Stavrev</field>
+	<field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+	<field name="supplier">1</field>
+	<field eval="0" name="customer"/>
+	<field name="speedy_office_id">832</field>
+	<field name="city">Varna</field>
+	<field name="city_id" ref="l10n_bg.10135"/>
+	<field name="state_id" ref="l10n_bg.S10135"/>
+	<field name="zip">9000</field>
+	<field name="country_id" ref="base.bg"/>
+	<field name="street">Vasil Stavrev</field>
+	<field name="number">2</field>
+	<field name="building_number"></field>
+	<field name="sector_number">Levski</field>
+</record>
+
+<record id="res_partner_address_speedy_9022" model="speedy.res.partner.offices">
+	<field name="name">Varna - Industrial Zone</field>
+	<field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+	<field name="supplier">1</field>
+	<field eval="0" name="customer"/>
+	<field name="speedy_office_id">9022</field>
+	<field name="city">Varna</field>
+	<field name="city_id" ref="l10n_bg.10135"/>
+	<field name="state_id" ref="l10n_bg.S10135"/>
+	<field name="zip">9000</field>
+	<field name="country_id" ref="base.bg"/>
+	<field name="street"></field>
+	<field name="number"></field>
+	<field name="building_number">Automatic mailing post</field>
+	<field name="sector_number">Industrial Zone</field>
+</record>
+
+<record id="res_partner_address_speedy_701" model="speedy.res.partner.offices">
+	<field name="name">Varna - Mladost</field>
+	<field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+	<field name="supplier">1</field>
+	<field eval="0" name="customer"/>
+	<field name="speedy_office_id">701</field>
+	<field name="city">Varna</field>
+	<field name="city_id" ref="l10n_bg.10135"/>
+	<field name="state_id" ref="l10n_bg.S10135"/>
+	<field name="zip">9000</field>
+	<field name="country_id" ref="base.bg"/>
+	<field name="street"></field>
+	<field name="number"></field>
+	<field name="building_number">across building 147</field>
+	<field name="sector_number">Mladost</field>
+</record>
+
+<record id="res_partner_address_speedy_9023" model="speedy.res.partner.offices">
+	<field name="name">Varna - Vladislav Varnenchik</field>
+	<field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+	<field name="supplier">1</field>
+	<field eval="0" name="customer"/>
+	<field name="speedy_office_id">9023</field>
+	<field name="city">Varna</field>
+	<field name="city_id" ref="l10n_bg.10135"/>
+	<field name="state_id" ref="l10n_bg.S10135"/>
+	<field name="zip">9000</field>
+	<field name="country_id" ref="base.bg"/>
+	<field name="street">Vladislav Varnenchik</field>
+	<field name="number">186</field>
+	<field name="building_number">Mall Varna</field>
+	<field name="sector_number"></field>
+</record>
+
+<record id="res_partner_address_speedy_785" model="speedy.res.partner.offices">
+	<field name="name">Varna - Nikola Vaptsarov</field>
+	<field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+	<field name="supplier">1</field>
+	<field eval="0" name="customer"/>
+	<field name="speedy_office_id">785</field>
+	<field name="city">Varna</field>
+	<field name="city_id" ref="l10n_bg.10135"/>
+	<field name="state_id" ref="l10n_bg.S10135"/>
+	<field name="zip">9000</field>
+	<field name="country_id" ref="base.bg"/>
+	<field name="street">Nikola Vaptsarov</field>
+	<field name="number">5</field>
+	<field name="building_number">ground floor of Trade Centre Chayka</field>
+	<field name="sector_number"></field>
+</record>
+
+<record id="res_partner_address_speedy_77" model="speedy.res.partner.offices">
+	<field name="name">Varna - Gen. Parensov</field>
+	<field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+	<field name="supplier">1</field>
+	<field eval="0" name="customer"/>
+	<field name="speedy_office_id">77</field>
+	<field name="city">Varna</field>
+	<field name="city_id" ref="l10n_bg.10135"/>
+	<field name="state_id" ref="l10n_bg.S10135"/>
+	<field name="zip">9000</field>
+	<field name="country_id" ref="base.bg"/>
+	<field name="street">Gen. Parensov</field>
+	<field name="number">8</field>
+	<field name="building_number">Office</field>
+	<field name="sector_number"></field>
+</record>
+
+<record id="res_partner_address_speedy_117" model="speedy.res.partner.offices">
+	<field name="name">Varna - Primorski</field>
+	<field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+	<field name="supplier">1</field>
+	<field eval="0" name="customer"/>
+	<field name="speedy_office_id">117</field>
+	<field name="city">Varna</field>
+	<field name="city_id" ref="l10n_bg.10135"/>
+	<field name="state_id" ref="l10n_bg.S10135"/>
+	<field name="zip">9000</field>
+	<field name="country_id" ref="base.bg"/>
+	<field name="street">Primorski</field>
+	<field name="number">27</field>
+	<field name="building_number"></field>
+	<field name="sector_number"></field>
+</record>
+
+<record id="res_partner_address_speedy_878" model="speedy.res.partner.offices">
+	<field name="name">Varna - Republika</field>
+	<field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+	<field name="supplier">1</field>
+	<field eval="0" name="customer"/>
+	<field name="speedy_office_id">878</field>
+	<field name="city">Varna</field>
+	<field name="city_id" ref="l10n_bg.10135"/>
+	<field name="state_id" ref="l10n_bg.S10135"/>
+	<field name="zip">9000</field>
+	<field name="country_id" ref="base.bg"/>
+	<field name="street">Republika</field>
+	<field name="number">25</field>
+	<field name="building_number"></field>
+	<field name="sector_number"></field>
+</record>
+
+<record id="res_partner_address_speedy_4" model="speedy.res.partner.offices">
+	<field name="name">Varna - West Industrial Zone</field>
+	<field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+	<field name="supplier">1</field>
+	<field eval="0" name="customer"/>
+	<field name="speedy_office_id">4</field>
+	<field name="city">Varna</field>
+	<field name="city_id" ref="l10n_bg.10135"/>
+	<field name="state_id" ref="l10n_bg.S10135"/>
+	<field name="zip">9000</field>
+	<field name="country_id" ref="base.bg"/>
+	<field name="street"></field>
+	<field name="number"></field>
+	<field name="building_number">Warehouse</field>
+	<field name="sector_number">West Industrial Zone</field>
+</record>
+
+<record id="res_partner_address_speedy_786" model="speedy.res.partner.offices">
+	<field name="name">Varna - Konstantin Velichkov</field>
+	<field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+	<field name="supplier">1</field>
+	<field eval="0" name="customer"/>
+	<field name="speedy_office_id">786</field>
+	<field name="city">Varna</field>
+	<field name="city_id" ref="l10n_bg.10135"/>
+	<field name="state_id" ref="l10n_bg.S10135"/>
+	<field name="zip">9000</field>
+	<field name="country_id" ref="base.bg"/>
+	<field name="street">Konstantin Velichkov</field>
+	<field name="number">61</field>
+	<field name="building_number">on the corner of Slivnitsa blvd. and Struga str.</field>
+	<field name="sector_number"></field>
+</record>
+
+<record id="res_partner_address_speedy_671" model="speedy.res.partner.offices">
+	<field name="name">Varna - Tsar Osvoboditel</field>
+	<field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+	<field name="supplier">1</field>
+	<field eval="0" name="customer"/>
+	<field name="speedy_office_id">671</field>
+	<field name="city">Varna</field>
+	<field name="city_id" ref="l10n_bg.10135"/>
+	<field name="state_id" ref="l10n_bg.S10135"/>
+	<field name="zip">9000</field>
+	<field name="country_id" ref="base.bg"/>
+	<field name="street">Tsar Osvoboditel</field>
+	<field name="number">95</field>
+	<field name="building_number">across the Hospital</field>
+	<field name="sector_number"></field>
+</record>
+
+<record id="res_partner_address_speedy_784" model="speedy.res.partner.offices">
+	<field name="name">Varna - Stefan Stambolov</field>
+	<field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+	<field name="supplier">1</field>
+	<field eval="0" name="customer"/>
+	<field name="speedy_office_id">784</field>
+	<field name="city">Varna</field>
+	<field name="city_id" ref="l10n_bg.10135"/>
+	<field name="state_id" ref="l10n_bg.S10135"/>
+	<field name="zip">9000</field>
+	<field name="country_id" ref="base.bg"/>
+	<field name="street">Stefan Stambolov</field>
+	<field name="number">15</field>
+	<field name="building_number"></field>
+	<field name="sector_number"></field>
+</record>
+
+<record id="res_partner_address_speedy_855" model="speedy.res.partner.offices">
+	<field name="name">Varna - Radost</field>
+	<field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+	<field name="supplier">1</field>
+	<field eval="0" name="customer"/>
+	<field name="speedy_office_id">855</field>
+	<field name="city">Varna</field>
+	<field name="city_id" ref="l10n_bg.10135"/>
+	<field name="state_id" ref="l10n_bg.S10135"/>
+	<field name="zip">9000</field>
+	<field name="country_id" ref="base.bg"/>
+	<field name="street">Radost</field>
+	<field name="number">9</field>
+	<field name="building_number"></field>
+	<field name="sector_number">Troshevo</field>
+</record>
+
+<record id="res_partner_address_speedy_111" model="speedy.res.partner.offices">
+	<field name="name">Varna - Tsar Osvoboditel</field>
+	<field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+	<field name="supplier">1</field>
+	<field eval="0" name="customer"/>
+	<field name="speedy_office_id">111</field>
+	<field name="city">Varna</field>
+	<field name="city_id" ref="l10n_bg.10135"/>
+	<field name="state_id" ref="l10n_bg.S10135"/>
+	<field name="zip">9000</field>
+	<field name="country_id" ref="base.bg"/>
+	<field name="street">Tsar Osvoboditel</field>
+	<field name="number">263A</field>
+	<field name="building_number">next to Technomarket</field>
+	<field name="sector_number">Troshevo</field>
+</record>
+
+<record id="res_partner_address_speedy_662" model="speedy.res.partner.offices">
+	<field name="name">Varna - Baba Tonka</field>
+	<field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+	<field name="supplier">1</field>
+	<field eval="0" name="customer"/>
+	<field name="speedy_office_id">662</field>
+	<field name="city">Varna</field>
+	<field name="city_id" ref="l10n_bg.10135"/>
+	<field name="state_id" ref="l10n_bg.S10135"/>
+	<field name="zip">9000</field>
+	<field name="country_id" ref="base.bg"/>
+	<field name="street">Baba Tonka</field>
+	<field name="number">13</field>
+	<field name="building_number"></field>
+	<field name="sector_number"></field>
+</record>
+
+<record id="res_partner_address_speedy_545" model="speedy.res.partner.offices">
+	<field name="name">Topoli - Doktor Lipov</field>
+	<field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+	<field name="supplier">1</field>
+	<field eval="0" name="customer"/>
+	<field name="speedy_office_id">545</field>
+	<field name="city">Topoli</field>
+	<field name="city_id" ref="l10n_bg.10135"/>
+	<field name="state_id" ref="l10n_bg.S10135"/>
+	<field name="zip">9140</field>
+	<field name="country_id" ref="base.bg"/>
+	<field name="street">Doktor Lipov</field>
+	<field name="number">20</field>
+	<field name="building_number"></field>
+	<field name="sector_number"></field>
+</record>
+
+<record id="res_partner_address_speedy_152" model="speedy.res.partner.offices">
+	<field name="name">Veliki Preslav - Boris Spirov</field>
+	<field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+	<field name="supplier">1</field>
+	<field eval="0" name="customer"/>
+	<field name="speedy_office_id">152</field>
+	<field name="city">Veliki Preslav</field>
+	<field name="city_id" ref="l10n_bg.10135"/>
+	<field name="state_id" ref="l10n_bg.S10135"/>
+	<field name="zip">9850</field>
+	<field name="country_id" ref="base.bg"/>
+	<field name="street">Boris Spirov</field>
+	<field name="number">63</field>
+	<field name="building_number">across Hypermarket IOMI</field>
+	<field name="sector_number"></field>
+</record>
+
+<record id="res_partner_address_speedy_704" model="speedy.res.partner.offices">
+	<field name="name">Veliko Tarnovo - Belyakovsko Shose</field>
+	<field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+	<field name="supplier">1</field>
+	<field eval="0" name="customer"/>
+	<field name="speedy_office_id">704</field>
+	<field name="city">Veliko Tarnovo</field>
+	<field name="city_id" ref="l10n_bg.10447"/>
+	<field name="state_id" ref="l10n_bg.S10447"/>
+	<field name="zip">5000</field>
+	<field name="country_id" ref="base.bg"/>
+	<field name="street">Belyakovsko Shose</field>
+	<field name="number">1D</field>
+	<field name="building_number">Car wash GT Wash</field>
+	<field name="sector_number"></field>
+</record>
+
+<record id="res_partner_address_speedy_736" model="speedy.res.partner.offices">
+	<field name="name">Veliko Tarnovo - Konstantin Panitsa</field>
+	<field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+	<field name="supplier">1</field>
+	<field eval="0" name="customer"/>
+	<field name="speedy_office_id">736</field>
+	<field name="city">Veliko Tarnovo</field>
+	<field name="city_id" ref="l10n_bg.10447"/>
+	<field name="state_id" ref="l10n_bg.S10447"/>
+	<field name="zip">5000</field>
+	<field name="country_id" ref="base.bg"/>
+	<field name="street">Konstantin Panitsa</field>
+	<field name="number">2</field>
+	<field name="building_number"></field>
+	<field name="sector_number"></field>
+</record>
+
+<record id="res_partner_address_speedy_9052" model="speedy.res.partner.offices">
+	<field name="name">Veliko Tarnovo - Oborishte</field>
+	<field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+	<field name="supplier">1</field>
+	<field eval="0" name="customer"/>
+	<field name="speedy_office_id">9052</field>
+	<field name="city">Veliko Tarnovo</field>
+	<field name="city_id" ref="l10n_bg.10447"/>
+	<field name="state_id" ref="l10n_bg.S10447"/>
+	<field name="zip">5000</field>
+	<field name="country_id" ref="base.bg"/>
+	<field name="street">Oborishte</field>
+	<field name="number">18</field>
+	<field name="building_number">Automatic post station, Mall Veliko Tarnovo</field>
+	<field name="sector_number"></field>
+</record>
+
+<record id="res_partner_address_speedy_816" model="speedy.res.partner.offices">
+	<field name="name">Veliko Tarnovo - Nikola Gabrovski</field>
+	<field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+	<field name="supplier">1</field>
+	<field eval="0" name="customer"/>
+	<field name="speedy_office_id">816</field>
+	<field name="city">Veliko Tarnovo</field>
+	<field name="city_id" ref="l10n_bg.10447"/>
+	<field name="state_id" ref="l10n_bg.S10447"/>
+	<field name="zip">5000</field>
+	<field name="country_id" ref="base.bg"/>
+	<field name="street">Nikola Gabrobski</field>
+	<field name="number">42</field>
+	<field name="building_number">Store 2</field>
+	<field name="sector_number"></field>
+</record>
+
+<record id="res_partner_address_speedy_80" model="speedy.res.partner.offices">
+	<field name="name">Veliko Tarnovo - Kozlodui</field>
+	<field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+	<field name="supplier">1</field>
+	<field eval="0" name="customer"/>
+	<field name="speedy_office_id">80</field>
+	<field name="city">Veliko Tarnovo</field>
+	<field name="city_id" ref="l10n_bg.10447"/>
+	<field name="state_id" ref="l10n_bg.S10447"/>
+	<field name="zip">5000</field>
+	<field name="country_id" ref="base.bg"/>
+	<field name="street">Kozlodui</field>
+	<field name="number">4</field>
+	<field name="building_number"></field>
+	<field name="sector_number"></field>
+</record>
+
+<record id="res_partner_address_speedy_9053" model="speedy.res.partner.offices">
+	<field name="name">Veliko Tarnovo - Canko Cerovski</field>
+	<field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+	<field name="supplier">1</field>
+	<field eval="0" name="customer"/>
+	<field name="speedy_office_id">9053</field>
+	<field name="city">Veliko Tarnovo</field>
+	<field name="city_id" ref="l10n_bg.10447"/>
+	<field name="state_id" ref="l10n_bg.S10447"/>
+	<field name="zip">5000</field>
+	<field name="country_id" ref="base.bg"/>
+	<field name="street">Canko Cerovski</field>
+	<field name="number">37</field>
+	<field name="building_number">Automatic post station, Sky Centre</field>
+	<field name="sector_number"></field>
+</record>
+
+<record id="res_partner_address_speedy_11" model="speedy.res.partner.offices">
+	<field name="name">Veliko Tarnovo - selo Ledenik, Warehouse</field>
+	<field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+	<field name="supplier">1</field>
+	<field eval="0" name="customer"/>
+	<field name="speedy_office_id">11</field>
+	<field name="city">Veliko Tarnovo</field>
+	<field name="city_id" ref="l10n_bg.10447"/>
+	<field name="state_id" ref="l10n_bg.S10447"/>
+	<field name="zip">5000</field>
+	<field name="country_id" ref="base.bg"/>
+	<field name="street">Shesta</field>
+	<field name="number">473</field>
+	<field name="building_number">selo Ledenik, Warehouse</field>
+	<field name="sector_number"></field>
+</record>
+
+<record id="res_partner_address_speedy_748" model="speedy.res.partner.offices">
+	<field name="name">Veliko Tarnovo - Triagalnika</field>
+	<field name="parent_id" eval="ref('delivery_speedy.res_partner_speedy_main_res_partner')"/>
+	<field name="supplier">1</field>
+	<field eval="0" name="customer"/>
+	<field name="speedy_office_id">748</field>
+	<field name="city">Veliko Tarnovo</field>
+	<field name="city_id" ref="l10n_bg.10447"/>
+	<field name="state_id" ref="l10n_bg.S10447"/>
+	<field name="zip">5000</field>
+	<field name="country_id" ref="base.bg"/>
+	<field name="street">Kolonya Tovar</field>
+	<field name="number">1</field>
+	<field name="building_number"></field>
+	<field name="sector_number">Triagalnika</field>
+</record>
+    </data>
+</odoo>

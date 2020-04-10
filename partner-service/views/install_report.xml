@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <report
+            id="installation_protocol_report"
+            model=""
+            string="Installations"
+            report_type="qweb-pdf"
+            name="fleet.installation_protocol_report"
+            file="fleet.installation_protocol_report"
+            attachment_use="True"
+            attachment="install_protocol.pdf"
+        />
+    </data>
+</odoo>

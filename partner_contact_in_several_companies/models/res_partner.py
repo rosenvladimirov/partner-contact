@@ -24,6 +24,15 @@ class ResPartner(models.Model):
     other_contact_ids = fields.One2many('res.partner', 'contact_id',
                                         string='Others Positions')
 
+    # image: all image fields are base64 encoded and PIL-supported
+    contact_id_image = fields.Binary("Image", related="contact_id.image")
+    contact_id_image_medium = fields.Binary("Medium-sized image", related="contact_id.image_medium")
+    contact_id_image_small = fields.Binary("Small-sized image", related="contact_id.image_small")
+    contact_id_name = fields.Char("Related contact name", related="contact_id.name")
+    contact_id_phone = fields.Char("Related phone phone", related="contact_id.phone")
+    contact_id_mobile = fields.Char("Related mobile phone", related="contact_id.mobile")
+    contact_id_job_position_id = fields.Many2one("res.partner.job_position", "Categorized job position", related="contact_id.job_position_id")
+
     @api.multi
     @api.depends('contact_id')
     def _compute_contact_type(self):
@@ -85,6 +94,12 @@ class ResPartner(models.Model):
 
     @api.multi
     def write(self, vals):
+        if 'contact_id_image' in vals:
+            del vals['contact_id_image']
+        if 'contact_id_image_medium' in vals:
+            del vals['contact_id_image_medium']
+        if 'contact_id_image_small' in vals:
+            del vals['contact_id_image_small']
         modified_self = self._basecontact_check_context('write')
         return super(ResPartner, modified_self).write(vals)
 

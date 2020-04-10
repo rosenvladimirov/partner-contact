@@ -12,6 +12,8 @@
     "depends": [
         "base",
         "partner_contact_personal_information_page",
+        'l10n_bg_multilang',
+        'partner_contact_job_position',
     ],
     "data": [
         "views/res_partner.xml",
