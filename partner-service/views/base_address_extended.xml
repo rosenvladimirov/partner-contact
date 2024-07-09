@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="services_view_partner_structured_form" model="ir.ui.view">
+        <field name="name">view_partner_structured_services_form</field>
+        <field name="model">services.res.partner</field>
+        <field name="inherit_id" ref="partner-service.services_partner_address_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='street']" position="replace">
+                <field name="street" invisible="1"/>
+                <field name="street_sector_number" placeholder="Sector Name..." attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"/>
+                <field name="street_name" placeholder="Street Name..." attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"/>
+                <span> </span>
+                <div class="o_row">
+                    <label for="street_number" class="oe_edit_only"/>
+                    <span> </span>
+                    <field name="street_number" attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"/>
+                    <label for="street_building_number" class="oe_edit_only"/>
+                    <field name="street_building_number" attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"/>
+                </div>
+                <div class="o_row">
+                    <label for="street_floor_number" class="oe_edit_only"/>
+                    <span> </span>
+                    <field name="street_floor_number" attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"/>
+                    <label for="street_number2" class="oe_edit_only"/>
+                    <field name="street_number2" attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"/><span> </span>
+                </div>
+            </xpath>
+        </field>
+    </record>
+    <record id="services_view_partner_address_structured_form" model="ir.ui.view">
+        <field name="name">view_partner_address_structured_services_form</field>
+        <field name="model">services.res.partner</field>
+        <field name="inherit_id" ref="partner-service.services_partner_short_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='street']" position="replace">
+                <field name="street" invisible="1"/>
+                <field name="street_sector_number" placeholder="Sector Name..." attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"/>
+                <field name="street_name" placeholder="Street Name..." attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"/>
+                <span> </span>
+                <div class="o_row">
+                    <label for="street_number" class="oe_edit_only"/>
+                    <span> </span>
+                    <field name="street_number" attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"/>
+                    <label for="street_building_number" class="oe_edit_only"/>
+                    <field name="street_building_number" attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"/>
+                </div>
+                <div class="o_row">
+                    <label for="street_floor_number" class="oe_edit_only"/>
+                    <span> </span>
+                    <field name="street_floor_number" attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"/>
+                    <label for="street_number2" class="oe_edit_only"/>
+                    <field name="street_number2" attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"/><span> </span>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>
