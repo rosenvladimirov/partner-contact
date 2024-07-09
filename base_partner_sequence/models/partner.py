@@ -4,28 +4,13 @@
 # Copyright 2016 Camptocamp - Akim Juillerat (<https://www.camptocamp.com>).
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
-from odoo import _, api, exceptions, fields, models
+from odoo import _, api, exceptions, models
 
 
 class ResPartner(models.Model):
     """Assigns 'ref' from a sequence on creation and copying"""
 
     _inherit = "res.partner"
-
-    ref_readonly = fields.Boolean(compute="_compute_ref_readonly")
-
-    @api.depends("company_id", "is_company", "parent_id")
-    @api.depends_context("company")
-    def _compute_ref_readonly(self):
-        for rec in self:
-            ref_readonly = False
-            if not rec.is_company and rec.parent_id:
-                ref_readonly = True
-            elif (
-                rec.company_id and rec.company_id.partner_ref_readonly
-            ) or self.env.company.partner_ref_readonly:
-                ref_readonly = True
-            rec.ref_readonly = ref_readonly
 
     def _get_next_ref(self, vals=None):
         return self.env["ir.sequence"].next_by_code("res.partner")
@@ -44,16 +29,16 @@ class ResPartner(models.Model):
         return super(ResPartner, self).copy(default=default)
 
     def write(self, vals):
-        partners_needing_ref = self.env["res.partner"]
-        if not vals.get("ref"):
-            partners_needing_ref = self.filtered(
-                lambda p: p._needs_ref(vals=vals) and not p.ref
-            )
-            for partner in partners_needing_ref:
-                partner_vals = vals.copy()
+        for partner in self:
+            partner_vals = vals.copy()
+            if (
+                not partner_vals.get("ref")
+                and partner._needs_ref(vals=partner_vals)
+                and not partner.ref
+            ):
                 partner_vals["ref"] = partner._get_next_ref(vals=partner_vals)
-                super(ResPartner, partner).write(partner_vals)
-        return super(ResPartner, self - partners_needing_ref).write(vals)
+            super(ResPartner, partner).write(partner_vals)
+        return True
 
     def _needs_ref(self, vals=None):
         """

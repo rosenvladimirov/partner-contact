@@ -11,7 +11,6 @@
         <field name="arch" type="xml">
             <tree editable="top">
                 <field name="name" />
-                <field name="company_id" />
             </tree>
         </field>
     </record>
@@ -22,7 +21,6 @@
             <form string="Interest Group">
                 <group>
                     <field name="name" />
-                    <field name="company_id" />
                 </group>
             </form>
         </field>

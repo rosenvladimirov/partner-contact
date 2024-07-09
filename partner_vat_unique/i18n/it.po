@@ -6,15 +6,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2024-02-16 18:34+0000\n"
-"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
+"PO-Revision-Date: 2019-08-09 19:44+0000\n"
+"Last-Translator: Marco Calcagni <mcalcagni@dinamicheaziendali.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.17\n"
+"X-Generator: Weblate 3.7.1\n"
 
 #. module: partner_vat_unique
 #: model:ir.model,name:partner_vat_unique.model_res_partner
@@ -25,7 +25,7 @@ msgstr "Contatto"
 #: model:ir.model.fields,field_description:partner_vat_unique.field_res_partner__vat
 #: model:ir.model.fields,field_description:partner_vat_unique.field_res_users__vat
 msgid "Tax ID"
-msgstr "Partita IVA"
+msgstr ""
 
 #. module: partner_vat_unique
 #: model:ir.model.fields,help:partner_vat_unique.field_res_partner__vat
@@ -35,9 +35,6 @@ msgid ""
 "country format. You can use '/' to indicate that the partner is not subject "
 "to tax."
 msgstr ""
-"Il numero identificazione imposta. I valori verranno validati nel formato "
-"della nazione. Si può utilizzare '/' per indicare che il partner non è "
-"soggetto all'imposta."
 
 #. module: partner_vat_unique
 #. odoo-python

@@ -12,17 +12,13 @@
         "Odoo Community Association (OCA)"
     ),
     "name": "Add a sequence on customers' code",
-    "version": "16.0.1.1.0",
+    "version": "16.0.1.0.1",
     "development_status": "Production/Stable",
     "category": "Generic Modules/Base",
     "website": "https://github.com/OCA/partner-contact",
-    "depends": ["base", "base_setup"],
+    "depends": ["base"],
     "summary": "Sets customer's code from a sequence",
-    "data": [
-        "data/partner_sequence.xml",
-        "views/partner_view.xml",
-        "views/res_config_view.xml",
-    ],
+    "data": ["data/partner_sequence.xml", "views/partner_view.xml"],
     "installable": True,
     "license": "AGPL-3",
 }

@@ -61,10 +61,7 @@ class ResConfigSettings(models.TransientModel):
         )
         partners = self._partners_for_recalculating()
         _logger.info("Recalculating names for %d partners.", len(partners))
-        # Use add_to_compute instead of _compute_name to avoid triggering
-        # _inverse_name_after_cleaning_whitespace, which can
-        # modify a partner's firstname, lastname and lastname2
-        self.env.add_to_compute(self.env["res.partner"]._fields["name"], partners)
+        partners._compute_name()
         self.partner_names_order_changed = False
         self.execute()
         _logger.info("%d partners updated.", len(partners))

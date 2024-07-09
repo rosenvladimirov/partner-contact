@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <!-- Copyright 2020 Tecnativa - Jairo Llopis
      License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
-<data>
+<odoo>
     <record id="view_partner_form" model="ir.ui.view">
         <field name="name">Add button to see child contacts full form</field>
         <field name="model">res.partner</field>
@@ -18,12 +18,9 @@
                     name="open_child_form"
                     title="Open full form"
                 >
-                    <i
-                        class="fa fa-caret-right fa-2x"
-                        style="position:absolute;top:-4px;right:5px;transform:rotateY(0deg) rotate(-45deg);"
-                    />
+                    <i class="fa fa-external-link-square" />
                 </button>
             </xpath>
         </field>
     </record>
-</data>
+</odoo>
