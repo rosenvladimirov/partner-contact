@@ -1,12 +1,14 @@
 #  Part of Odoo. See LICENSE file for full copyright and licensing details.
 import logging
 
-from odoo import api, SUPERUSER_ID
 from polyglot.downloader import downloader
 
+from odoo import models
+from .models.res_transliterate import partner_name_translate
 
-def _get_lang_sorted(lang):
-    return
+from .odoo.models import regex_order
+
+_logger = logging.getLogger(__name__)
 
 
 def pre_init_hook(env):
@@ -15,12 +17,22 @@ def pre_init_hook(env):
 
 def post_init_hook(env):
     languages = downloader._packages
-    for lang in env['res.lang'].search([]):
+    for lang in env['res.lang'].with_context(active_test=False).search([]):
         if f"transliteration2.{lang.code[:2]}" in languages:
             lang.transliterate = True
 
-    languages = env['res.lang'].with_context(active_test=False).search([('code', '!=', 'en_US')])
-    for partner_id in env['res.partner'].search([]):
+    languages = env['res.lang'].search([('code', '!=', 'en_US')])
+    partners = env['res.partner'].search([])
+    for partner_id in partners:
+        text = partner_id.name
+        if not text:
+            continue
+
         for lang in languages:
-            partner_id.with_context(**dict(partner_id._context, lang=lang)). \
-                _force_multilanguage(partner_id, {'name': partner_id.name}, new_record=True)
+            _logger.info(f"Partner {text} to {lang.code}")
+            partner_id.with_context(lang=lang.code).name = text
+            partner_id.with_context(lang="en_US").name = partner_name_translate(text, lang.code[:2], lang.transliterate)
+
+
+def post_load_hook():
+    models.regex_order = regex_order

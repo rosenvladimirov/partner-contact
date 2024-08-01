@@ -9,6 +9,9 @@
     "complexity": "normal",
     "author": "Rosen Vladimirov,Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/partner-contact",
+    "description": """
+        Multilang partner names.
+    """,
     'external_dependencies': {
         'python': [
             'polyglot',
@@ -28,4 +31,5 @@
     "installable": True,
     "pre_init_hook": "pre_init_hook",
     "post_init_hook": "post_init_hook",
+    "post_load": "post_load_hook",  # Reported with PR https://github.com/odoo/odoo/pull/174499
 }

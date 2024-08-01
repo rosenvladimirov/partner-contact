@@ -58,7 +58,7 @@ class ResTransliterate(models.AbstractModel):
             if len(langs) > 0:
                 transliterate = True
                 lang = langs[0].code
-        _logger.info(f"LANG: {lang} {current_lang} {text} {self.name}")
+        # _logger.info(f"LANG: {lang} {current_lang} {text} {self.name}")
         return lang, current_lang, transliterate
 
     @api.depends_context('lang')
