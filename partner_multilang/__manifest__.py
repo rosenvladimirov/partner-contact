@@ -15,7 +15,7 @@
     'external_dependencies': {
         'python': [
             'polyglot',
-            'numpy',
+            'numpy==1.24.4',
             'pycld2',
             'morfessor',
             'pyicu',
