@@ -1,7 +1,9 @@
 #  Part of Odoo. See LICENSE file for full copyright and licensing details.
 import logging
+
+import cyrtranslit
 from lxml import etree
-from polyglot.transliteration import Transliterator
+# from polyglot.transliteration import Transliterator
 
 from odoo import api, models
 from polyglot.text import Text
@@ -12,17 +14,18 @@ TRANSLITERATE_FIELDS = ['name', 'company_name',
                         'private_city', 'private_street', 'private_street2']
 
 def partner_name_translate(name, lang, transliterate):
-    if lang != "en_US" and transliterate:
-        transliterator = Transliterator(source_lang=lang[:2], target_lang="en")
-        text_to_letters = list(name)
-        text_from_letters = []
-        for letter in text_to_letters:
-            if ' ' in letter:
-                text_from_letters.append(letter)
-                continue
-            letter_transliterate = transliterator.transliterate(letter)
-            text_from_letters.append(letter.isupper() and letter_transliterate.upper() or letter_transliterate)
-        return "".join(text_from_letters)
+    if lang not in ["en", "en_US"] and transliterate:
+        return cyrtranslit.to_latin(name, lang[:2])
+        # transliterator = Transliterator(source_lang=lang[:2], target_lang="en")
+        # text_to_letters = list(name)
+        # text_from_letters = []
+        # for letter in text_to_letters:
+        #     if ' ' in letter:
+        #         text_from_letters.append(letter)
+        #         continue
+        #     letter_transliterate = transliterator.transliterate(letter)
+        #     text_from_letters.append(letter.isupper() and letter_transliterate.upper() or letter_transliterate)
+        # return "".join(text_from_letters)
     return name
 
 
