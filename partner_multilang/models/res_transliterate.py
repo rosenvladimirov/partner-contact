@@ -2,11 +2,10 @@
 import logging
 
 import cyrtranslit
+from langdetect import detect
 from lxml import etree
-# from polyglot.transliteration import Transliterator
 
 from odoo import api, models
-from polyglot.text import Text
 
 _logger = logging.getLogger(__name__)
 TRANSLITERATE_FIELDS = ['name', 'company_name',
@@ -16,16 +15,6 @@ TRANSLITERATE_FIELDS = ['name', 'company_name',
 def partner_name_translate(name, lang, transliterate):
     if lang not in ["en", "en_US"] and transliterate:
         return cyrtranslit.to_latin(name, lang[:2])
-        # transliterator = Transliterator(source_lang=lang[:2], target_lang="en")
-        # text_to_letters = list(name)
-        # text_from_letters = []
-        # for letter in text_to_letters:
-        #     if ' ' in letter:
-        #         text_from_letters.append(letter)
-        #         continue
-        #     letter_transliterate = transliterator.transliterate(letter)
-        #     text_from_letters.append(letter.isupper() and letter_transliterate.upper() or letter_transliterate)
-        # return "".join(text_from_letters)
     return name
 
 
@@ -53,18 +42,18 @@ class ResTransliterate(models.AbstractModel):
     def _get_transliterate_languages(self):
         return self.env['res.lang'].with_context(active_test=False).search([('transliterate', '=', True)])
 
+    def _get_code_lang(self, code):
+        return self.env['res.lang'].with_context(active_test=False).search([('iso_code', '=', code)])
+
     def _check_lang(self, text):
         current_lang = lang = self.env.user.lang
         installed_langs = self._get_transliterate_languages()
         transliterate = installed_langs.filtered(lambda r: r.code == lang)
         if text and lang == 'en_US':
-            text_text = Text(text)
-            lang_detect = text_text.language.code
-            langs = installed_langs.filtered(lambda r: r.code.startswith(lang_detect))
-
-            if len(langs) > 0:
-                transliterate = True
-                lang = langs[0].code
+            detect_lang = detect(text)
+            lang = self._get_code_lang(detect_lang).code
+            if not lang:
+                lang = current_lang
         # _logger.info(f"LANG: {lang} {current_lang} {text} {self.name}")
         return lang, current_lang, transliterate
 
