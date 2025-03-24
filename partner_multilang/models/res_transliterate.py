@@ -40,10 +40,10 @@ class ResTransliterate(models.AbstractModel):
         return result
 
     def _get_transliterate_languages(self):
-        return self.env['res.lang'].with_context(active_test=False).search([('transliterate', '=', True)])
+        return self.env['res.lang'].search([('transliterate', '=', True)])
 
     def _get_code_lang(self, code):
-        return self.env['res.lang'].with_context(active_test=False).search([('iso_code', '=', code)])
+        return self.env['res.lang'].search([('iso_code', '=', code)])
 
     def _check_lang(self, text):
         current_lang = lang = self.env.user.lang
