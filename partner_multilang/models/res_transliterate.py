@@ -49,28 +49,29 @@ class ResTransliterate(models.AbstractModel):
         current_lang = lang = self.env.user.lang
         installed_langs = self._get_transliterate_languages()
         transliterate = installed_langs.filtered(lambda r: r.code == lang)
-        if text and lang == 'en_US':
-            detect_lang = detect(text)
-            lang = self._get_code_lang(detect_lang).code
-            if not lang:
-                lang = current_lang
+        # if text and lang == 'en_US':
+        #     detect_lang = detect(text)
+        #     lang = self._get_code_lang(detect_lang).code
+        #     if not lang:
+        #         lang = current_lang
         # _logger.info(f"LANG: {lang} {current_lang} {text} {self.name}")
-        return lang, current_lang, transliterate
+        return current_lang, transliterate
 
     @api.depends_context('lang')
     def _force_multilanguage(self, vals, new_record=False):
         for field_name in TRANSLITERATE_FIELDS:
             if vals.get(field_name) and new_record:
-                lang, current_lang, transliterate = self._check_lang(vals[field_name])
-                if lang != "en_US":
-                    if current_lang != lang:
-                        record = self.with_context(**dict(self._context, lang=lang, update_lang=True))
-                        record.write({
-                          field_name: vals[field_name],
-                        })
+                current_lang, transliterate = self._check_lang(vals[field_name])
+                # Save in user lang
+                record = self.with_context(**dict(self._context, lang=current_lang, update_lang=True))
+                record.write({
+                  field_name: vals[field_name],
+                })
+                # if transliterate save transliterated
+                if transliterate and current_lang != "en_US":
                     record = self.with_context(**dict(self._context, lang="en_US", update_lang=True))
                     record.write({
-                        field_name: partner_name_translate(vals[field_name], lang, transliterate)
+                        field_name: partner_name_translate(vals[field_name], current_lang, transliterate)
                     })
 
     @api.model_create_multi
