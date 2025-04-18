@@ -88,6 +88,6 @@ class ResTransliterate(models.AbstractModel):
         if not self._context.get('update_lang', False):
             for record in self:
                 for field_name in TRANSLITERATE_FIELDS:
-                    if not getattr(record, field_name):
+                    if field_name not in self._fields and not getattr(record, field_name):
                         record._force_multilanguage(vals, True)
         return res
