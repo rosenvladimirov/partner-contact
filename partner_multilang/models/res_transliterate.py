@@ -59,8 +59,8 @@ class ResTransliterate(models.AbstractModel):
 
     @api.depends_context('lang')
     def _force_multilanguage(self, vals, new_record=False):
-        for field_name in TRANSLITERATE_FIELDS:
-            if field_name not in self._fields:
+        for field_name in [x for x in TRANSLITERATE_FIELDS if x in self._fields.keys()]:
+            if field_name not in self._fields.keys():
                 continue
             if vals.get(field_name) and new_record:
                 current_lang, transliterate = self._check_lang(vals[field_name])
@@ -87,7 +87,7 @@ class ResTransliterate(models.AbstractModel):
         res = super().write(vals)
         if not self._context.get('update_lang', False):
             for record in self:
-                for field_name in TRANSLITERATE_FIELDS:
-                    if field_name not in self._fields and not getattr(record, field_name):
+                for field_name in [x for x in TRANSLITERATE_FIELDS if x in self._fields.keys()]:
+                    if not getattr(record, field_name):
                         record._force_multilanguage(vals, True)
         return res
