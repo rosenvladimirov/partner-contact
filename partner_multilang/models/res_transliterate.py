@@ -64,7 +64,7 @@ class ResTransliterate(models.AbstractModel):
                 continue
             if not new_record:
                 new_record = not getattr(self.with_context(**dict(self._context, lang="en_US")), field_name)
-            _logger.info(f'New record: {new_record} {getattr(self.with_context(**dict(self._context, lang="en_US")), field_name)}')
+            # _logger.info(f'New record: {new_record} {getattr(self.with_context(**dict(self._context, lang="en_US")), field_name)}')
             if vals.get(field_name) and new_record:
                 current_lang, transliterate = self._check_lang(vals[field_name])
                 # Save in user lang
