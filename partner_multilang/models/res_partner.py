@@ -19,4 +19,3 @@ class Partner(models.Model):
     function = fields.Char(translate=True)
     company_name = fields.Char(translate=True)
     commercial_company_name = fields.Char(translate=True)
-
