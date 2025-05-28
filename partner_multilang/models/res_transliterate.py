@@ -49,12 +49,6 @@ class ResTransliterate(models.AbstractModel):
         current_lang = lang = self.env.user.lang
         installed_langs = self._get_transliterate_languages()
         transliterate = installed_langs.filtered(lambda r: r.code == lang)
-        # if text and lang == 'en_US':
-        #     detect_lang = detect(text)
-        #     lang = self._get_code_lang(detect_lang).code
-        #     if not lang:
-        #         lang = current_lang
-        # _logger.info(f"LANG: {lang} {current_lang} {text} {self.name}")
         return current_lang, transliterate
 
     @api.depends_context('lang')
@@ -67,11 +61,11 @@ class ResTransliterate(models.AbstractModel):
             # _logger.info(f'New record: {new_record} {getattr(self.with_context(**dict(self._context, lang="en_US")), field_name)}')
             if vals.get(field_name) and new_record:
                 current_lang, transliterate = self._check_lang(vals[field_name])
-                # Save in user lang
-                record = self.with_context(**dict(self._context, lang=current_lang, update_lang=True))
-                record.write({
-                  field_name: vals[field_name],
-                })
+                # # Save in user lang
+                # record = self.with_context(**dict(self._context, lang=current_lang, update_lang=True))
+                # record.write({
+                #   field_name: vals[field_name],
+                # })
                 # if transliterate save transliterated
                 if transliterate and current_lang != "en_US":
                     record = self.with_context(**dict(self._context, lang="en_US", update_lang=True))
