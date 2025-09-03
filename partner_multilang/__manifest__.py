@@ -10,8 +10,10 @@
     """,
     "external_dependencies": {
         "python": [
-            "cyrtranslit",
-            "langdetect",
+            "transliterate",
+            "unidecode",
+            "lingua",
+            # "langdetect"
         ]
     },
     "depends": [

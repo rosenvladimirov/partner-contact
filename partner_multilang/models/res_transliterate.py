@@ -1,10 +1,38 @@
 #  Part of Odoo. See LICENSE file for full copyright and licensing details.
 import logging
 
-import cyrtranslit
-from langdetect import detect
-from lxml import etree
+# Библиотеки за транслитерация
+try:
+    from transliterate import translit
 
+    HAS_TRANSLITERATE = True
+except ImportError:
+    HAS_TRANSLITERATE = False
+
+from unidecode import unidecode
+
+# Библиотеки за разпознаване на език
+try:
+    from lingua import Language, LanguageDetectorBuilder
+
+    # Създаваме детектор за поддържаните езици
+    SUPPORTED_LANGUAGES = [
+        Language.BULGARIAN, Language.ENGLISH, Language.RUSSIAN,
+        Language.SERBIAN, Language.MACEDONIAN, Language.UKRAINIAN
+    ]
+    LINGUA_DETECTOR = LanguageDetectorBuilder.from_languages(*SUPPORTED_LANGUAGES).build()
+    HAS_LINGUA = True
+except ImportError:
+    HAS_LINGUA = False
+
+try:
+    from langdetect import detect
+
+    HAS_LANGDETECT = True
+except ImportError:
+    HAS_LANGDETECT = False
+
+from lxml import etree
 from odoo import api, models
 
 _logger = logging.getLogger(__name__)
@@ -12,9 +40,61 @@ TRANSLITERATE_FIELDS = ['name', 'company_name',
                         'city', 'street', 'street2',
                         'private_city', 'private_street', 'private_street2']
 
-def partner_name_translate(name, lang, transliterate):
-    if lang not in ["en", "en_US"] and transliterate:
-        return cyrtranslit.to_latin(name, lang[:2])
+# Маппинг за езикови кодове
+LANGUAGE_MAPPING = {
+    'bg': 'bg',  # Български
+    'ru': 'ru',  # Руски
+    'mk': 'mk',  # Македонски
+    'sr': 'sr',  # Сръбски
+    'uk': 'uk',  # Украински
+    'be': 'be',  # Беларуски
+}
+
+
+def detect_text_language(text):
+    """Разпознава езика на текста с приоритет на библиотеките"""
+    if not text or len(text.strip()) < 3:
+        return 'unknown'
+
+    # Приоритет 1: Lingua (най-точна)
+    if HAS_LINGUA:
+        try:
+            language = LINGUA_DETECTOR.detect_language_of(text)
+            if language:
+                return language.iso_code_639_1.name.lower()
+        except Exception as e:
+            _logger.warning(f"Lingua detection failed: {e}")
+
+    # Приоритет 2: langdetect (бърза)
+    if HAS_LANGDETECT:
+        try:
+            return detect(text)
+        except Exception as e:
+            _logger.warning(f"Langdetect failed: {e}")
+
+    return 'unknown'
+
+
+def partner_name_translate(name, lang, transliterate_flag):
+    """Транслитерира имена с автоматично разпознаване на език"""
+    if lang not in ["en", "en_US"] and transliterate_flag:
+        # Ако няма зададен език, опитваме се да го разпознаем
+        if not lang or lang == 'unknown':
+            detected_lang = detect_text_language(name)
+            if detected_lang != 'unknown':
+                lang = detected_lang
+
+        lang_code = lang[:2] if lang else 'unknown'
+
+        # Опитваме специфична транслитерация по език
+        if HAS_TRANSLITERATE and lang_code in LANGUAGE_MAPPING:
+            try:
+                return translit(name, LANGUAGE_MAPPING[lang_code], reversed=True)
+            except Exception as e:
+                _logger.warning(f"Transliterate failed for {lang_code}: {e}")
+
+        # Fallback към Unidecode
+        return unidecode(name)
     return name
 
 
@@ -49,6 +129,15 @@ class ResTransliterate(models.AbstractModel):
         current_lang = lang = self.env.user.lang
         installed_langs = self._get_transliterate_languages()
         transliterate = installed_langs.filtered(lambda r: r.code == lang)
+
+        # Ако текущият език не е разпознат, опитваме автоматично разпознаване
+        if not lang or lang == 'unknown':
+            detected_lang = detect_text_language(text)
+            if detected_lang != 'unknown':
+                current_lang = detected_lang
+                # Проверяваме дали разпознатият език поддържа транслитерация
+                transliterate = installed_langs.filtered(lambda r: r.code.startswith(detected_lang))
+
         return current_lang, transliterate
 
     @api.depends_context('lang')
