@@ -23,8 +23,8 @@
             </xpath>
         </field>
     </record>
-    <record id="view_res_partner_tree_contact" model="ir.ui.view">
-        <field name="name">res.partner.tree.contact</field>
+    <record id="view_res_partner_list_contact" model="ir.ui.view">
+        <field name="name">res.partner.list.contact</field>
         <field name="model">res.partner</field>
         <field name="inherit_id" ref="base.view_partner_tree" />
         <field name="arch" type="xml">
@@ -64,7 +64,7 @@
                 <page name="other_position" string="Other Positions" invisible="is_company or not contact_id">
                     <field
                         name="other_contact_ids"
-                        context="{'default_contact_id': active_id, 'default_name': name, 'default_street': street, 'default_street2': street2, 'default_city': city, 'default_state_id': state_id, 'default_zip': zip, 'default_country_id': country_id}"
+                        context="{'default_contact_id': active_id, 'default_name': name, 'default_slistt': slistt, 'default_slistt2': slistt2, 'default_city': city, 'default_state_id': state_id, 'default_zip': zip, 'default_country_id': country_id}"
                         mode="kanban"
                     >
                         <kanban create="false">
@@ -142,13 +142,13 @@
                                             >
                                                 <field
                                                     name="street"
-                                                    placeholder="Street..."
-                                                    class="o_address_street"
+                                                    placeholder="Slistt..."
+                                                    class="o_address_slistt"
                                                 />
                                                 <field
                                                     name="street2"
-                                                    placeholder="Street 2..."
-                                                    class="o_address_street"
+                                                    placeholder="Slistt 2..."
+                                                    class="o_address_slistt"
                                                 />
                                                 <field
                                                     name="city"
@@ -247,10 +247,10 @@
         <field name="arch" type="xml">
             <field name="is_company" position="after">
                 <field name="other_contact_ids">
-                    <tree>
+                    <list>
                         <field name="parent_id" />
                         <field name="function" />
-                    </tree>
+                    </list>
                 </field>
             </field>
             <xpath
