@@ -28,7 +28,7 @@
         <field name="model">res.partner</field>
         <field name="inherit_id" ref="base.view_partner_tree" />
         <field name="arch" type="xml">
-            <field name="name" position="before">
+            <field name="complete_name" position="before">
                 <field name="contact_id" invisible="1" />
             </field>
         </field>
