@@ -253,20 +253,12 @@
                     </list>
                 </field>
             </field>
-            <xpath
-                expr="//t[@t-name='kanban-box']//div[hasclass('oe_kanban_details')]//ul/li[3]"
-                position="after"
-            >
-                <t t-if="record.other_contact_ids.raw_value.length &gt; 0">
-                    <li>+ <t t-esc="record.other_contact_ids.raw_value.length" />
-                        <t
-                            t-if="record.other_contact_ids.raw_value.length == 1"
-                        >other position</t>
-                        <t
-                            t-if="record.other_contact_ids.raw_value.length &gt; 1"
-                        >other positions</t>
-                    </li>
-                </t>
+            <xpath expr="//field[@name='function']" position="before">
+                <div t-if="record.other_contact_ids.raw_value.length &gt; 0">
+                    <t t-esc="record.other_contact_ids.raw_value.length" /><span/>
+                    <t t-if="record.other_contact_ids.raw_value.length == 1">other position</t>
+                    <t t-if="record.other_contact_ids.raw_value.length &gt; 1">other positions</t>
+                </div>
             </xpath>
         </field>
     </record>
