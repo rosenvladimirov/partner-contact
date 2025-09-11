@@ -64,7 +64,7 @@
                 <page name="other_position" string="Other Positions" invisible="is_company or not contact_id">
                     <field
                         name="other_contact_ids"
-                        context="{'default_contact_id': active_id, 'default_name': name, 'default_street': street, 'default_street2': street2, 'default_city': city, 'default_state_id': state_id, 'default_zip': zip, 'default_country_id': country_id}"
+                        context="{'default_contact_id': id, 'default_name': name, 'default_street': street, 'default_street2': street2, 'default_city': city, 'default_state_id': state_id, 'default_zip': zip, 'default_country_id': country_id}"
                         mode="kanban"
                     >
                         <kanban create="false">
