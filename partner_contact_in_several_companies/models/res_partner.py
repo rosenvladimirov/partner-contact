@@ -27,11 +27,20 @@ class ResPartner(models.Model):
         "contact_id",
         string="Others Positions",
     )
+    otger_function = fields.Char(
+        string="Other Function",
+        compute="_compute_otger_function",
+    )
 
     @api.depends("contact_id")
     def _compute_contact_type(self):
         for rec in self:
             rec.contact_type = "attached" if rec.contact_id else "standalone"
+
+    @api.depends("other_contact_ids")
+    def _compute_otger_function(self):
+        for rec in self:
+            rec.otger_function = f"{len(rec.other_contact_ids) if rec.other_contact_ids else ''} other position{len(rec.other_contact_ids) > 0 and 's' or ''}"
 
     def _basecontact_check_context(self, mode):
         """Remove "search_show_all_positions" for non-search mode.
