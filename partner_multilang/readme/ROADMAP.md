@@ -1,2 +1,0 @@
-- l10n_bg_multilan add support for ISO9 and law Bulgarian transliteration
-- l10n_gr_multilan add support ΕΛΟΤ 743
