@@ -33,9 +33,9 @@ class ResPartner(models.Model):
         if self._convert_lastnames_to_uppercase():
             for vals in vals_list:
                 is_company = vals.get("is_company", False)
-            lastname = vals.get("lastname", False)
-            if lastname and not is_company:
-                vals["lastname"] = lastname.upper()
+                lastname = vals.get("lastname", False)
+                if lastname and not is_company:
+                    vals["lastname"] = lastname.upper()
         return super().create(vals_list)
 
     def write(self, vals):

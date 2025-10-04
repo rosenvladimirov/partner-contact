@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2015-2017 ACSONE SA/NV
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="view_academic_title_form" model="ir.ui.view">
+        <field name="name">partner.academic.title.form</field>
+        <field name="model">partner.academic.title</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <field name="active" invisible="1" />
+                    <widget name="web_ribbon" title="Archived" bg_color="bg-danger" invisible="active"/>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder="Name"/></h1>
+                    </div>
+                    <group>
+                        <field name="sequence" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="view_academic_title_tree" model="ir.ui.view">
+        <field name="name">partner.academic.title.tree</field>
+        <field name="model">partner.academic.title</field>
+        <field name="arch" type="xml">
+            <list editable="bottom">
+                <field name="sequence"/>
+                <field name="name" />
+            </list>
+        </field>
+    </record>
+    <record id="open_academic_title" model="ir.actions.act_window">
+        <field name="name">Academic Titles</field>
+        <field name="res_model">partner.academic.title</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="partner_academic_title.view_academic_title_tree"/>
+    </record>
+    <menuitem id="menu_academic_title" name="Academic Titles"
+        parent="contacts.res_partner_menu_config"
+        action="open_academic_title" sequence="3"/>
+</odoo>
