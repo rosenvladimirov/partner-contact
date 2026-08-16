@@ -1,7 +1,11 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 from odoo import api, fields, models
-from odoo.osv import expression
+
+# 🚨 19.0: `odoo.osv.expression` е махнат — работата с домейни минава през
+# `odoo.fields.Domain`. `Domain(args)` замества `normalize_domain`, а
+# `Domain.AND` / `Domain.OR` приемат същите списъци.
+from odoo.fields import Domain
 
 
 class ResPartner(models.Model):
@@ -57,7 +61,10 @@ class ResPartner(models.Model):
         return result
 
     @api.model
-    def search(self, args, offset=0, limit=None, order=None):
+    def search(self, domain, offset=0, limit=None, order=None):
+        # 19.0 преименува първия параметър на `domain`; тялото ползва
+        # `args`, затова се пренася веднъж тук
+        args = domain
         """Display only standalone contact matching ``args`` or having
         attached contact matching ``args``"""
         ctx = self.env.context
@@ -65,14 +72,14 @@ class ResPartner(models.Model):
             ctx.get("search_show_all_positions", {}).get("is_set")
             and not ctx["search_show_all_positions"]["set_value"]
         ):
-            args = expression.normalize_domain(args)
-            attached_contact_args = expression.AND(
+            args = Domain(args)
+            attached_contact_args = Domain.AND(
                 [args, [("contact_type", "=", "attached")]]
             )
             attached_contacts = super(ResPartner, self).search(attached_contact_args)
-            args = expression.OR(
+            args = Domain.OR(
                 [
-                    expression.AND([[("contact_type", "=", "standalone")], args]),
+                    Domain.AND([[("contact_type", "=", "standalone")], args]),
                     [("other_contact_ids", "in", attached_contacts.ids)],
                 ]
             )

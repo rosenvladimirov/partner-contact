@@ -42,21 +42,6 @@
             <field name="parent_id" position="after">
                 <field name="contact_id" invisible="1" />
             </field>
-            <xpath
-                expr="//field[@name='child_ids']/form//field[@name='name']"
-                position="before"
-            >
-                <field name='contact_type' readonly='0' />
-                <field
-                    name="contact_id"
-                    string="Contact"
-                    invisible="contact_type != 'attached'"
-                    required="contact_type == 'attached'"
-                />
-            </xpath>
-            <xpath expr="//field[@name='child_ids']/form//field[@name='name']" position="attributes">
-                <attribute name="invisible">[('contact_type','=','attached')]</attribute>
-            </xpath>
             <field name="is_company" position="after">
                 <field name="contact_type" invisible="1" />
             </field>
@@ -70,7 +55,6 @@
                         <kanban create="false">
                             <field name="color" />
                             <field name="name" />
-                            <field name="title" />
                             <field name="email" />
                             <field name="parent_id" />
                             <field name="is_company" />
@@ -81,7 +65,6 @@
                             <field name="zip" />
                             <field name="city" />
                             <field name="country_id" />
-                            <field name="mobile" />
                             <field name="state_id" />
                             <field name="image_128" />
                             <field name="lang" />
@@ -113,10 +96,6 @@
                                             <div
                                                 t-if="record.phone.raw_value"
                                             >Phone: <field name="phone" />
-                                            </div>
-                                            <div
-                                                t-if="record.mobile.raw_value"
-                                            >Mobile: <field name="mobile" />
                                             </div>
                                         </div>
                                     </div>
@@ -183,18 +162,12 @@
                                             required="type == 'contact'"
                                         />
                                         <field
-                                            name="title"
-                                            placeholder="e.g. Mr."
-                                            invisible="type != 'contact'"
-                                        />
-                                        <field
                                             name="function"
                                             placeholder="e.g. Sales Director"
                                             invisible="type != 'contact'"
                                         />
                                         <field name="email" />
                                         <field name="phone" widget="phone" />
-                                        <field name="mobile" widget="phone" />
                                         <field
                                             name="comment"
                                             placeholder="internal note..."
@@ -248,8 +221,28 @@
             <field name="is_company" position="after">
                 <field name="other_contact_ids"/>
             </field>
-            <xpath expr="//field[@name='function'][1]" position="before">
-                <field t-if="record.other_contact_ids" name="otger_function"/>
+        </field>
+    </record>
+    <!--
+      🚨 19.0: `child_ids` в `base.view_partner_form` е `mode="kanban"` и НЯМА
+      вложена `<form>` — старият xpath
+      `//field[@name='child_ids']/form//field[@name='name']` не намира нищо и
+      целият модул пада с ParseError. В 19 контактът се редактира през
+      отделния `base.view_partner_simple_form`, затова полетата отиват там.
+    -->
+    <record model="ir.ui.view" id="view_partner_simple_form_contact">
+        <field name="name">res.partner.simple.form.contact</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_simple_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@id='individual']" position="before">
+                <field name="contact_type" readonly="0" />
+                <field
+                    name="contact_id"
+                    string="Contact"
+                    invisible="contact_type != 'attached'"
+                    required="contact_type == 'attached'"
+                />
             </xpath>
         </field>
     </record>
