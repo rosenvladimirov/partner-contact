@@ -11,6 +11,11 @@ from odoo.fields import Domain
 class ResPartner(models.Model):
     _inherit = "res.partner"
 
+    # 🔑 EDITABLE computed (readonly=False). Стойността по подразбиране следва
+    # `contact_id` (compute), но радиото в диалога за добавяне на контакт може
+    # да я превключи ръчно. Дотук липсваше `readonly=False` ⇒ полето беше
+    # readonly в UI ⇒ юзърът не можеше да избере „attached", а без това
+    # връзката (`contact_id`) стоеше вечно скрита. Решение на Росен, 25.08.2026.
     contact_type = fields.Selection(
         [
             ("standalone", "Standalone Contact"),
@@ -18,6 +23,7 @@ class ResPartner(models.Model):
         ],
         compute="_compute_contact_type",
         store=True,
+        readonly=False,
         index=True,
         default="standalone",
     )
@@ -40,6 +46,13 @@ class ResPartner(models.Model):
     def _compute_contact_type(self):
         for rec in self:
             rec.contact_type = "attached" if rec.contact_id else "standalone"
+
+    @api.onchange("contact_type")
+    def _onchange_contact_type(self):
+        # Ръчно превключване на standalone чисти висящата връзка, за да не
+        # остане `contact_id`, който `_compute_commercial_partner` после чете.
+        if self.contact_type == "standalone":
+            self.contact_id = False
 
     @api.depends("other_contact_ids")
     def _compute_otger_function(self):

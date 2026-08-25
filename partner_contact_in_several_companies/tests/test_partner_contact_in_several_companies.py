@@ -194,3 +194,34 @@ class PartnerContactInSeveralCompaniesCase(common.TransactionCase):
             new_contact.commercial_partner_id,
             self.bob_contact,
         )
+
+    def test_09_contact_type_is_manually_editable(self):
+        """Радиото Standalone/Attached трябва да е editable в диалога.
+
+        Дефектът (erp3, 25.08.2026): `contact_type` беше computed БЕЗ
+        `readonly=False` ⇒ readonly в UI ⇒ юзърът не можеше да превключи на
+        „attached", а без това полето с връзката (`contact_id`) стоеше вечно
+        скрито. Този assert пада на стария код и минава на поправения.
+        """
+        field = self.partner._fields["contact_type"]
+        self.assertFalse(
+            field.readonly,
+            "contact_type трябва да е editable (readonly=False), за да работи "
+            "радиото в диалога за добавяне на контакт",
+        )
+
+    def test_10_standalone_clears_the_link(self):
+        """Ръчното превключване на standalone чисти висящата връзка.
+
+        Пази инварианта, на който стъпва `_compute_commercial_partner`:
+        standalone контакт няма главен контакт.
+        """
+        rec = self.partner.new({"contact_id": self.bob_contact.id})
+        self.assertEqual(rec.contact_type, "attached")
+        rec.contact_type = "standalone"
+        rec._onchange_contact_type()
+        self.assertFalse(
+            rec.contact_id,
+            "standalone трябва да изчисти contact_id, за да не остане висяща "
+            "връзка",
+        )

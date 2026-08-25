@@ -236,12 +236,19 @@
         <field name="inherit_id" ref="base.view_partner_simple_form" />
         <field name="arch" type="xml">
             <xpath expr="//field[@id='individual']" position="before">
-                <field name="contact_type" readonly="0" />
+                <field
+                    name="contact_type"
+                    widget="radio"
+                    options="{'horizontal': true}"
+                    invisible="is_company"
+                />
                 <field
                     name="contact_id"
-                    string="Contact"
-                    invisible="contact_type != 'attached'"
+                    string="Main Contact"
+                    invisible="is_company or contact_type != 'attached'"
                     required="contact_type == 'attached'"
+                    domain="[('is_company', '=', False), ('contact_type', '=', 'standalone')]"
+                    options="{'no_create_edit': True}"
                 />
             </xpath>
         </field>
