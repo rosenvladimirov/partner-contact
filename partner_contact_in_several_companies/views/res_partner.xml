@@ -250,4 +250,34 @@
             </xpath>
         </field>
     </record>
+    <!--
+      🔑 РЕАЛНИЯТ диалог „Добави Контакт" е ВГРАДЕНАТА `<form string="Contact /
+      Address">` в `child_ids` на `base.view_partner_form`, НЕ
+      `view_partner_simple_form` (то се ползва при quick-create другаде).
+      Котвата `//sheet/field[@name='type']` е същата, която hospital ползва за
+      medical_type. Тук слагаме радиото за връзката до нея.
+    -->
+    <record model="ir.ui.view" id="view_partner_form_child_contact_link">
+        <field name="name">res.partner.form.child.contact.link</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//sheet/field[@name='type']" position="after">
+                <field
+                    name="contact_type"
+                    widget="radio"
+                    options="{'horizontal': true}"
+                    invisible="is_company or type != 'contact'"
+                />
+                <field
+                    name="contact_id"
+                    string="Main Contact"
+                    invisible="is_company or type != 'contact' or contact_type != 'attached'"
+                    required="contact_type == 'attached'"
+                    domain="[('is_company', '=', False), ('contact_type', '=', 'standalone')]"
+                    options="{'no_create_edit': True}"
+                />
+            </xpath>
+        </field>
+    </record>
 </odoo>
