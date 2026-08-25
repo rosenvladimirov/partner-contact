@@ -11,19 +11,18 @@ from odoo.fields import Domain
 class ResPartner(models.Model):
     _inherit = "res.partner"
 
-    # 🔑 EDITABLE computed (readonly=False). Стойността по подразбиране следва
-    # `contact_id` (compute), но радиото в диалога за добавяне на контакт може
-    # да я превключи ръчно. Дотук липсваше `readonly=False` ⇒ полето беше
-    # readonly в UI ⇒ юзърът не можеше да избере „attached", а без това
-    # връзката (`contact_id`) стоеше вечно скрита. Решение на Росен, 25.08.2026.
+    # 🔑 ОБИКНОВЕНО поле, НЕ computed. Радиото в диалога го превключва ръчно и
+    # стойността persist-ва. Editable computed се проваляше тук: при UI onchange
+    # ядрото преизчисляваше computed-а от `contact_id` (празно → standalone) и
+    # връщаше ръчния „attached" назад ⇒ връзката пак се скриваше. Инвариантът
+    # (attached ⇔ има contact_id) сега се пази в create()/write(). Решение на
+    # Росен, 25.08.2026.
     contact_type = fields.Selection(
         [
             ("standalone", "Standalone Contact"),
             ("attached", "Attached to existing Contact"),
         ],
-        compute="_compute_contact_type",
         store=True,
-        readonly=False,
         index=True,
         default="standalone",
     )
@@ -42,17 +41,17 @@ class ResPartner(models.Model):
         compute="_compute_otger_function",
     )
 
-    @api.depends("contact_id")
-    def _compute_contact_type(self):
-        for rec in self:
-            rec.contact_type = "attached" if rec.contact_id else "standalone"
-
     @api.onchange("contact_type")
     def _onchange_contact_type(self):
-        # Ръчно превключване на standalone чисти висящата връзка, за да не
-        # остане `contact_id`, който `_compute_commercial_partner` после чете.
+        # standalone чисти връзката; двете стоят в синхрон и в UI.
         if self.contact_type == "standalone":
             self.contact_id = False
+
+    @api.onchange("contact_id")
+    def _onchange_contact_id(self):
+        # избран главен контакт ⇒ attached (за UX, ако връзката се сложи първа).
+        if self.contact_id:
+            self.contact_type = "attached"
 
     @api.depends("other_contact_ids")
     def _compute_otger_function(self):
@@ -108,6 +107,10 @@ class ResPartner(models.Model):
         for vals in vals_list:
             if not vals.get("name") and vals.get("contact_id"):
                 vals["name"] = modified_self.browse(vals["contact_id"]).name
+            # Инвариант (заместя загубения compute): наличен главен контакт ⇒
+            # attached. search() и _compute_commercial_partner стъпват на него.
+            if vals.get("contact_id"):
+                vals["contact_type"] = "attached"
         return super(ResPartner, modified_self).create(vals_list)
 
     def read(self, fields=None, load="_classic_read"):
@@ -116,6 +119,12 @@ class ResPartner(models.Model):
 
     def write(self, vals):
         modified_self = self._basecontact_check_context("write")
+        # Държи contact_type в синхрон с contact_id при запис през код
+        # (onchange не тича извън UI). `write({"contact_id": False})` ⇒
+        # standalone; зададен ⇒ attached.
+        if "contact_id" in vals:
+            vals = dict(vals)
+            vals["contact_type"] = "attached" if vals.get("contact_id") else "standalone"
         return super(ResPartner, modified_self).write(vals)
 
     def unlink(self):
