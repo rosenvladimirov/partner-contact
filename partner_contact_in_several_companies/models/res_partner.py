@@ -41,18 +41,6 @@ class ResPartner(models.Model):
         compute="_compute_otger_function",
     )
 
-    @api.onchange("contact_type")
-    def _onchange_contact_type(self):
-        # standalone чисти връзката; двете стоят в синхрон и в UI.
-        if self.contact_type == "standalone":
-            self.contact_id = False
-
-    @api.onchange("contact_id")
-    def _onchange_contact_id(self):
-        # избран главен контакт ⇒ attached (за UX, ако връзката се сложи първа).
-        if self.contact_id:
-            self.contact_type = "attached"
-
     @api.depends("other_contact_ids")
     def _compute_otger_function(self):
         for rec in self:
@@ -144,7 +132,9 @@ class ResPartner(models.Model):
     def _contact_fields(self):
         """Returns the list of contact fields that are synced from the parent
         when a partner is attached to him."""
-        return ["name", "title"]
+        # 🚨 o19 махна `title` от res.partner — филтрираме по реално
+        # съществуващите полета, иначе синхронът гърми при attached контакт.
+        return [f for f in ("name", "title") if f in self._fields]
 
     def _contact_sync_from_parent(self):
         """Handle sync of contact fields when a new parent contact entity
@@ -153,7 +143,14 @@ class ResPartner(models.Model):
         self.ensure_one()
         if self.contact_id:
             contact_fields = self._contact_fields()
-            sync_vals = self.contact_id._update_fields_values(contact_fields)
+            # 🚨 `_update_fields_values` е махнат в o19. Еквивалентът е
+            # `convert_to_write` за всяко поле — дава write-ready стойност
+            # (m2o → id и т.н.), без счупения стар API.
+            record = self.contact_id
+            sync_vals = {
+                fname: record._fields[fname].convert_to_write(record[fname], record)
+                for fname in contact_fields
+            }
             self.write(sync_vals)
 
     def update_contact(self, vals):
@@ -187,6 +184,8 @@ class ResPartner(models.Model):
     @api.onchange("contact_id")
     def _onchange_contact_id(self):
         if self.contact_id:
+            # избран главен контакт ⇒ attached и името се пренася от него
+            self.contact_type = "attached"
             self.name = self.contact_id.name
 
     @api.onchange("contact_type")

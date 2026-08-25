@@ -225,3 +225,20 @@ class PartnerContactInSeveralCompaniesCase(common.TransactionCase):
             "standalone трябва да изчисти contact_id, за да не остане висяща "
             "връзка",
         )
+
+    def test_11_create_attached_syncs_without_crash(self):
+        """Създаване на attached контакт не гърми и пренася името.
+
+        Заварен o19 дефект (erp3, 25.08.2026): `_contact_sync_from_parent`
+        викаше `_update_fields_values` (махнат в o19) и `_contact_fields`
+        връщаше `title` (махнато от res.partner в o19) ⇒ всеки attached контакт
+        хвърляше AttributeError още при запис. Никой не стигаше дотам, защото
+        връзката не се показваше в диалога.
+        """
+        child = self.partner.create(
+            {"contact_id": self.bob_contact.id, "type": "contact"}
+        )
+        self.assertEqual(child.contact_type, "attached")
+        self.assertEqual(child.name, self.bob_contact.name)
+        # синхронът чете само реално съществуващи полета
+        self.assertNotIn("title", child._contact_fields())
