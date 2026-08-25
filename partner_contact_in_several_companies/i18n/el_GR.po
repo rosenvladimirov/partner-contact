@@ -22,149 +22,149 @@ msgstr ""
 #. module: partner_contact_in_several_companies
 #: model:ir.model,name:partner_contact_in_several_companies.model_ir_actions_act_window
 msgid "Action Window"
-msgstr ""
+msgstr "Παράθυρο ενέργειας"
 
 #. module: partner_contact_in_several_companies
 #: model_terms:ir.ui.view,arch_db:partner_contact_in_several_companies.view_partner_form_inherit
 msgid "Address"
-msgstr ""
+msgstr "Διεύθυνση"
 
 #. module: partner_contact_in_several_companies
 #: model:ir.actions.act_window,name:partner_contact_in_several_companies.action_partner_form
 msgid "All Customers in All Positions"
-msgstr ""
+msgstr "Όλοι οι πελάτες σε όλες τις θέσεις"
 
 #. module: partner_contact_in_several_companies
 #: model_terms:ir.ui.view,arch_db:partner_contact_in_several_companies.view_res_partner_filter_contact
 msgid "All partner positions"
-msgstr ""
+msgstr "Όλες οι θέσεις του συνεργάτη"
 
 #. module: partner_contact_in_several_companies
 #: model_terms:ir.ui.view,arch_db:partner_contact_in_several_companies.view_res_partner_filter_contact
 msgid "All positions"
-msgstr ""
+msgstr "Όλες οι θέσεις"
 
 #. module: partner_contact_in_several_companies
 #: model:ir.model.fields.selection,name:partner_contact_in_several_companies.selection__res_partner__contact_type__attached
 msgid "Attached to existing Contact"
-msgstr ""
+msgstr "Συνδεδεμένη με υπάρχουσα επαφή"
 
 #. module: partner_contact_in_several_companies
 #: model_terms:ir.ui.view,arch_db:partner_contact_in_several_companies.view_partner_form_inherit
 msgid "Avatar"
-msgstr ""
+msgstr "Άβαταρ"
 
 #. module: partner_contact_in_several_companies
 #: model_terms:ir.ui.view,arch_db:partner_contact_in_several_companies.view_partner_form_inherit
 msgid "City"
-msgstr ""
+msgstr "Πόλη"
 
 #. module: partner_contact_in_several_companies
 #: model:ir.model,name:partner_contact_in_several_companies.model_res_partner
 #: model_terms:ir.ui.view,arch_db:partner_contact_in_several_companies.view_partner_form_inherit
 msgid "Contact"
-msgstr ""
+msgstr "Επαφή"
 
 #. module: partner_contact_in_several_companies
 #: model_terms:ir.ui.view,arch_db:partner_contact_in_several_companies.view_partner_form_inherit
 msgid "Contact Image"
-msgstr ""
+msgstr "Εικόνα επαφής"
 
 #. module: partner_contact_in_several_companies
 #: model_terms:ir.ui.view,arch_db:partner_contact_in_several_companies.view_partner_form_inherit
 msgid "Contact Name"
-msgstr ""
+msgstr "Όνομα επαφής"
 
 #. module: partner_contact_in_several_companies
 #: model:ir.model.fields,field_description:partner_contact_in_several_companies.field_res_partner__contact_type
 #: model:ir.model.fields,field_description:partner_contact_in_several_companies.field_res_users__contact_type
 msgid "Contact Type"
-msgstr ""
+msgstr "Τύπος επαφής"
 
 #. module: partner_contact_in_several_companies
 #: model_terms:ir.ui.view,arch_db:partner_contact_in_several_companies.view_partner_form_inherit
 msgid "Country"
-msgstr ""
+msgstr "Χώρα"
 
 #. module: partner_contact_in_several_companies
 #: model_terms:ir.ui.view,arch_db:partner_contact_in_several_companies.view_partner_form_inherit
 msgid "Delete Contact"
-msgstr ""
+msgstr "Διαγραφή επαφής"
 
 #. module: partner_contact_in_several_companies
 #: model:ir.model.fields,field_description:partner_contact_in_several_companies.field_ir_actions_act_window__display_name
 #: model:ir.model.fields,field_description:partner_contact_in_several_companies.field_res_partner__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Εμφανιζόμενο όνομα"
 
 #. module: partner_contact_in_several_companies
 #: model:ir.model.fields,field_description:partner_contact_in_several_companies.field_ir_actions_act_window__id
 #: model:ir.model.fields,field_description:partner_contact_in_several_companies.field_res_partner__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: partner_contact_in_several_companies
 #: model:ir.model.fields,field_description:partner_contact_in_several_companies.field_ir_actions_act_window____last_update
 #: model:ir.model.fields,field_description:partner_contact_in_several_companies.field_res_partner____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Τελευταία τροποποίηση στις"
 
 #. module: partner_contact_in_several_companies
 #: model_terms:ir.ui.view,arch_db:partner_contact_in_several_companies.view_partner_form_inherit
 msgid "Logo"
-msgstr ""
+msgstr "Λογότυπο"
 
 #. module: partner_contact_in_several_companies
 #: model:ir.model.fields,field_description:partner_contact_in_several_companies.field_res_partner__contact_id
 #: model:ir.model.fields,field_description:partner_contact_in_several_companies.field_res_users__contact_id
 msgid "Main Contact"
-msgstr ""
+msgstr "Κύρια επαφή"
 
 #. module: partner_contact_in_several_companies
 #: model_terms:ir.ui.view,arch_db:partner_contact_in_several_companies.view_partner_form_inherit
 msgid "Mobile:"
-msgstr ""
+msgstr "Κινητό:"
 
 #. module: partner_contact_in_several_companies
 #: model_terms:ir.ui.view,arch_db:partner_contact_in_several_companies.view_partner_form_inherit
 msgid "Other Positions"
-msgstr ""
+msgstr "Άλλες θέσεις"
 
 #. module: partner_contact_in_several_companies
 #: model:ir.model.fields,field_description:partner_contact_in_several_companies.field_res_partner__other_contact_ids
 #: model:ir.model.fields,field_description:partner_contact_in_several_companies.field_res_users__other_contact_ids
 msgid "Others Positions"
-msgstr ""
+msgstr "Άλλες θέσεις"
 
 #. module: partner_contact_in_several_companies
 #: model_terms:ir.ui.view,arch_db:partner_contact_in_several_companies.view_res_partner_filter_contact
 msgid "Person"
-msgstr ""
+msgstr "Άτομο"
 
 #. module: partner_contact_in_several_companies
 #: model_terms:ir.ui.view,arch_db:partner_contact_in_several_companies.view_partner_form_inherit
 msgid "Phone:"
-msgstr ""
+msgstr "Τηλέφωνο:"
 
 #. module: partner_contact_in_several_companies
 #: model:ir.model.fields.selection,name:partner_contact_in_several_companies.selection__res_partner__contact_type__standalone
 msgid "Standalone Contact"
-msgstr ""
+msgstr "Αυτόνομη επαφή"
 
 #. module: partner_contact_in_several_companies
 #: model_terms:ir.ui.view,arch_db:partner_contact_in_several_companies.view_partner_form_inherit
 msgid "State"
-msgstr ""
+msgstr "Νομός"
 
 #. module: partner_contact_in_several_companies
 #: model_terms:ir.ui.view,arch_db:partner_contact_in_several_companies.view_partner_form_inherit
 msgid "Street 2..."
-msgstr ""
+msgstr "Οδός 2..."
 
 #. module: partner_contact_in_several_companies
 #: model_terms:ir.ui.view,arch_db:partner_contact_in_several_companies.view_partner_form_inherit
 msgid "Street..."
-msgstr ""
+msgstr "Οδός..."
 
 #. module: partner_contact_in_several_companies
 #: model_terms:ir.ui.view,arch_db:partner_contact_in_several_companies.personal_contact_information
@@ -176,37 +176,53 @@ msgstr ""
 #. module: partner_contact_in_several_companies
 #: model_terms:ir.ui.view,arch_db:partner_contact_in_several_companies.view_partner_form_inherit
 msgid "ZIP"
-msgstr ""
+msgstr "Ταχ. κώδικας"
 
 #. module: partner_contact_in_several_companies
 #: model_terms:ir.ui.view,arch_db:partner_contact_in_several_companies.view_partner_form_inherit
 msgid "at"
-msgstr ""
+msgstr "στην"
 
 #. module: partner_contact_in_several_companies
 #: model_terms:ir.ui.view,arch_db:partner_contact_in_several_companies.view_partner_form_inherit
 msgid "e.g. Mr."
-msgstr ""
+msgstr "π.χ. κ."
 
 #. module: partner_contact_in_several_companies
 #: model_terms:ir.ui.view,arch_db:partner_contact_in_several_companies.view_partner_form_inherit
 msgid "e.g. Sales Director"
-msgstr ""
+msgstr "π.χ. Διευθυντής Πωλήσεων"
 
 #. module: partner_contact_in_several_companies
 #: model_terms:ir.ui.view,arch_db:partner_contact_in_several_companies.view_partner_form_inherit
 msgid "internal note..."
-msgstr ""
+msgstr "εσωτερική σημείωση..."
 
 #. module: partner_contact_in_several_companies
 #: model_terms:ir.ui.view,arch_db:partner_contact_in_several_companies.view_res_partner_kanban_contact
 msgid "other position"
-msgstr ""
+msgstr "άλλη θέση"
 
 #. module: partner_contact_in_several_companies
 #: model_terms:ir.ui.view,arch_db:partner_contact_in_several_companies.view_res_partner_kanban_contact
 msgid "other positions"
-msgstr ""
+msgstr "άλλες θέσεις"
 
 #~ msgid "Partner"
 #~ msgstr "Συνεργάτης"
+
+#. module: partner_contact_in_several_companies
+msgid "Contact image"
+msgstr "Εικόνα επαφής"
+
+#. module: partner_contact_in_several_companies
+msgid "Other Function"
+msgstr "Άλλη θέση"
+
+#. module: partner_contact_in_several_companies
+msgid "Slistt 2..."
+msgstr "Οδός 2..."
+
+#. module: partner_contact_in_several_companies
+msgid "Slistt..."
+msgstr "Οδός..."
