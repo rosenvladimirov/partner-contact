@@ -52,6 +52,9 @@
                         context="{'default_contact_id': id, 'default_name': name, 'default_street': street, 'default_street2': street2, 'default_city': city, 'default_state_id': state_id, 'default_zip': zip, 'default_country_id': country_id}"
                         mode="kanban"
                     >
+                        <!-- 🚨 В 19 шаблонът на картата се казва `card`; `kanban-box`
+                             е махнат. Коментар ВЪТРЕ в <templates> не се слага —
+                             arch-ът пази коментарите и разборът на картата ги вижда. -->
                         <kanban create="false">
                             <field name="color" />
                             <field name="name" />
@@ -66,39 +69,33 @@
                             <field name="city" />
                             <field name="country_id" />
                             <field name="state_id" />
-                            <field name="image_128" />
+                            <field name="avatar_128" />
                             <field name="lang" />
                             <templates>
-                                <t t-name="kanban-box">
-                                    <t
-                                        t-set="color"
-                                        t-value="kanban_color(record.color.raw_value)"
-                                    />
-                                    <div
-                                        t-att-class="color + (record.title.raw_value == 1 ? ' oe_kanban_color_alert' : '') + ' oe_kanban_global_click'"
-                                    >
-                                        <div class="o_kanban_image">
-                                            <img
-                                                alt="Contact image"
-                                                t-att-src="kanban_image('res.partner', 'avatar_128', record.id.raw_value)"
+                                <t t-name="card" class="flex-row">
+                                    <aside class="o_kanban_aside_full">
+                                        <field
+                                            name="avatar_128"
+                                            alt="Contact image"
+                                            widget="image"
+                                            options="{'img_class': 'object-fit-contain'}"
+                                        />
+                                    </aside>
+                                    <main class="ps-2">
+                                        <field name="name" class="fw-bold" />
+                                        <div t-if="record.function.raw_value">
+                                            <field name="function" /> at <field
+                                                name="parent_id"
                                             />
                                         </div>
-                                        <div class="oe_kanban_details">
-                                            <field name="name" />
-                                            <div t-if="record.function.raw_value">
-                                                <field name="function" /> at <field
-                                                    name="parent_id"
-                                                />
-                                            </div>
-                                            <div t-if="record.email.raw_value">
-                                                <field name="email" />
-                                            </div>
-                                            <div
-                                                t-if="record.phone.raw_value"
-                                            >Phone: <field name="phone" />
-                                            </div>
+                                        <div t-if="record.email.raw_value">
+                                            <field name="email" />
                                         </div>
-                                    </div>
+                                        <div
+                                            t-if="record.phone.raw_value"
+                                        >Phone: <field name="phone" />
+                                        </div>
+                                    </main>
                                 </t>
                             </templates>
                         </kanban>
